@@ -1,0 +1,14 @@
+overwrite: true
+schema: 'http://localhost:1337/graphql'
+documents: './apps/client/**/!(*.d).{ts,tsx}'
+generates:
+  apps/client/graphql.tsx:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-urql'
+    config:
+      withHooks: true
+  ./apps/client/graphql.schema.json:
+    plugins:
+      - 'urql-introspection'

@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "codegen": "graphql-codegen"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +25,11 @@
   "devDependencies": {
     "@angular-devkit/architect": "^0.1202.7",
     "@angular-devkit/core": "^12.2.7",
+    "@graphql-codegen/cli": "2.2.0",
+    "@graphql-codegen/typescript": "2.2.2",
+    "@graphql-codegen/typescript-operations": "2.1.5",
+    "@graphql-codegen/typescript-urql": "^3.2.0",
+    "@graphql-codegen/urql-introspection": "2.1.0",
     "@nrwl/cli": "12.9.0",
     "@nrwl/cypress": "12.9.0",
     "@nrwl/eslint-plugin-nx": "12.9.0",

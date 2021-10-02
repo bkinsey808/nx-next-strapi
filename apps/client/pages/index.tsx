@@ -4,12 +4,12 @@ import {
   fetchExchange,
   gql,
   ssrExchange,
-  useQuery,
 } from 'urql';
 import { initUrqlClient, withUrqlClient } from 'next-urql';
+import { usePostsQuery } from '../graphql';
 
 const POSTS_QUERY = gql`
-  query {
+  query Posts {
     posts {
       id
       Title
@@ -19,7 +19,7 @@ const POSTS_QUERY = gql`
 `;
 
 export function Index() {
-  const [{ data }] = useQuery({ query: POSTS_QUERY });
+  const [{ data }] = usePostsQuery();
   return (
     <div>
       <h1>Posts</h1>

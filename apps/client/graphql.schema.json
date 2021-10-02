@@ -1,0 +1,3971 @@
+{
+  "__schema": {
+    "queryType": {
+      "name": "Query"
+    },
+    "mutationType": {
+      "name": "Mutation"
+    },
+    "subscriptionType": null,
+    "types": [
+      {
+        "kind": "OBJECT",
+        "name": "AdminUser",
+        "fields": [
+          {
+            "name": "firstname",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "lastname",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "username",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "I18NLocale",
+        "fields": [
+          {
+            "name": "code",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "created_at",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "name",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "updated_at",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "UNION",
+        "name": "Morph",
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "I18NLocale"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "Post"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "PostAggregator"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "PostConnection"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "PostConnectionContent"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "PostConnectionCreated_at"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "PostConnectionId"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "PostConnectionPublished_at"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "PostConnectionSlug"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "PostConnectionTitle"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "PostConnectionUpdated_at"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "PostGroupBy"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFile"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileAggregator"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileAggregatorAvg"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileAggregatorMax"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileAggregatorMin"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileAggregatorSum"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnection"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnectionAlternativeText"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnectionCaption"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnectionCreated_at"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnectionExt"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnectionFormats"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnectionHash"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnectionHeight"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnectionId"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnectionMime"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnectionName"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnectionPreviewUrl"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnectionProvider"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnectionProvider_metadata"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnectionSize"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnectionUpdated_at"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnectionUrl"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileConnectionWidth"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UploadFileGroupBy"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UserPermissionsPasswordPayload"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsLoginPayload"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsMe"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsMeRole"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsPermission"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsRole"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsRoleAggregator"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsRoleConnection"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsRoleConnectionDescription"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsRoleConnectionId"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsRoleConnectionName"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsRoleConnectionType"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsRoleGroupBy"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsUser"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsUserAggregator"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsUserConnection"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsUserConnectionBlocked"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsUserConnectionConfirmed"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsUserConnectionCreated_at"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsUserConnectionEmail"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsUserConnectionId"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsUserConnectionProvider"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsUserConnectionRole"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsUserConnectionUpdated_at"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsUserConnectionUsername"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UsersPermissionsUserGroupBy"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "createPostPayload"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "createRolePayload"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "createUserPayload"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "deleteFilePayload"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "deletePostPayload"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "deleteRolePayload"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "deleteUserPayload"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "updatePostPayload"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "updateRolePayload"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "updateUserPayload"
+          }
+        ]
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Mutation",
+        "fields": [
+          {
+            "name": "createPost",
+            "type": {
+              "kind": "OBJECT",
+              "name": "createPostPayload",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "input",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "createRole",
+            "type": {
+              "kind": "OBJECT",
+              "name": "createRolePayload",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "input",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "createUser",
+            "type": {
+              "kind": "OBJECT",
+              "name": "createUserPayload",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "input",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "deleteFile",
+            "type": {
+              "kind": "OBJECT",
+              "name": "deleteFilePayload",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "input",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "deletePost",
+            "type": {
+              "kind": "OBJECT",
+              "name": "deletePostPayload",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "input",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "deleteRole",
+            "type": {
+              "kind": "OBJECT",
+              "name": "deleteRolePayload",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "input",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "deleteUser",
+            "type": {
+              "kind": "OBJECT",
+              "name": "deleteUserPayload",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "input",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "emailConfirmation",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsLoginPayload",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "confirmation",
+                "type": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "forgotPassword",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UserPermissionsPasswordPayload",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "email",
+                "type": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "login",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsLoginPayload",
+                "ofType": null
+              }
+            },
+            "args": [
+              {
+                "name": "input",
+                "type": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "multipleUpload",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "UploadFile",
+                  "ofType": null
+                }
+              }
+            },
+            "args": [
+              {
+                "name": "field",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "files",
+                "type": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              },
+              {
+                "name": "ref",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "refId",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "source",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "register",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsLoginPayload",
+                "ofType": null
+              }
+            },
+            "args": [
+              {
+                "name": "input",
+                "type": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "resetPassword",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsLoginPayload",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "code",
+                "type": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              },
+              {
+                "name": "password",
+                "type": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              },
+              {
+                "name": "passwordConfirmation",
+                "type": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "updateFileInfo",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFile",
+                "ofType": null
+              }
+            },
+            "args": [
+              {
+                "name": "id",
+                "type": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              },
+              {
+                "name": "info",
+                "type": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "updatePost",
+            "type": {
+              "kind": "OBJECT",
+              "name": "updatePostPayload",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "input",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "updateRole",
+            "type": {
+              "kind": "OBJECT",
+              "name": "updateRolePayload",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "input",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "updateUser",
+            "type": {
+              "kind": "OBJECT",
+              "name": "updateUserPayload",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "input",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "upload",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFile",
+                "ofType": null
+              }
+            },
+            "args": [
+              {
+                "name": "field",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "file",
+                "type": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              },
+              {
+                "name": "info",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "ref",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "refId",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "source",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Post",
+        "fields": [
+          {
+            "name": "Content",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "Slug",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "Title",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "created_at",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "published_at",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "updated_at",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PostAggregator",
+        "fields": [
+          {
+            "name": "count",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "totalCount",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PostConnection",
+        "fields": [
+          {
+            "name": "aggregate",
+            "type": {
+              "kind": "OBJECT",
+              "name": "PostAggregator",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "groupBy",
+            "type": {
+              "kind": "OBJECT",
+              "name": "PostGroupBy",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "values",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Post",
+                "ofType": null
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PostConnectionContent",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "PostConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PostConnectionCreated_at",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "PostConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PostConnectionId",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "PostConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PostConnectionPublished_at",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "PostConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PostConnectionSlug",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "PostConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PostConnectionTitle",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "PostConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PostConnectionUpdated_at",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "PostConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PostGroupBy",
+        "fields": [
+          {
+            "name": "Content",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PostConnectionContent",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "Slug",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PostConnectionSlug",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "Title",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PostConnectionTitle",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "created_at",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PostConnectionCreated_at",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PostConnectionId",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "published_at",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PostConnectionPublished_at",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "updated_at",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PostConnectionUpdated_at",
+                "ofType": null
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Query",
+        "fields": [
+          {
+            "name": "files",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFile",
+                "ofType": null
+              }
+            },
+            "args": [
+              {
+                "name": "limit",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "publicationState",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "sort",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "start",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "where",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "filesConnection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "limit",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "sort",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "start",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "where",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "me",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsMe",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "post",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Post",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "id",
+                "type": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              },
+              {
+                "name": "publicationState",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "posts",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Post",
+                "ofType": null
+              }
+            },
+            "args": [
+              {
+                "name": "limit",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "publicationState",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "sort",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "start",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "where",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "postsConnection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "PostConnection",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "limit",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "sort",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "start",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "where",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "role",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsRole",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "id",
+                "type": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              },
+              {
+                "name": "publicationState",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "roles",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsRole",
+                "ofType": null
+              }
+            },
+            "args": [
+              {
+                "name": "limit",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "publicationState",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "sort",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "start",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "where",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "rolesConnection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsRoleConnection",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "limit",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "sort",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "start",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "where",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "user",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsUser",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "id",
+                "type": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              },
+              {
+                "name": "publicationState",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "users",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsUser",
+                "ofType": null
+              }
+            },
+            "args": [
+              {
+                "name": "limit",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "publicationState",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "sort",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "start",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "where",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "usersConnection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsUserConnection",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "limit",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "sort",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "start",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "where",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFile",
+        "fields": [
+          {
+            "name": "alternativeText",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "caption",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "created_at",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "ext",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "formats",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "hash",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "height",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "mime",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "name",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "previewUrl",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "provider",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "provider_metadata",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "related",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "UNION",
+                "name": "Morph",
+                "ofType": null
+              }
+            },
+            "args": [
+              {
+                "name": "limit",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "sort",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "start",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "where",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "size",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "updated_at",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "url",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "width",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileAggregator",
+        "fields": [
+          {
+            "name": "avg",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileAggregatorAvg",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "count",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "max",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileAggregatorMax",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "min",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileAggregatorMin",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "sum",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileAggregatorSum",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "totalCount",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileAggregatorAvg",
+        "fields": [
+          {
+            "name": "height",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "size",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "width",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileAggregatorMax",
+        "fields": [
+          {
+            "name": "height",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "size",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "width",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileAggregatorMin",
+        "fields": [
+          {
+            "name": "height",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "size",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "width",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileAggregatorSum",
+        "fields": [
+          {
+            "name": "height",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "size",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "width",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnection",
+        "fields": [
+          {
+            "name": "aggregate",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileAggregator",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "groupBy",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileGroupBy",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "values",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFile",
+                "ofType": null
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnectionAlternativeText",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnectionCaption",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnectionCreated_at",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnectionExt",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnectionFormats",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnectionHash",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnectionHeight",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnectionId",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnectionMime",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnectionName",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnectionPreviewUrl",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnectionProvider",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnectionProvider_metadata",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnectionSize",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnectionUpdated_at",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnectionUrl",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileConnectionWidth",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFileConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadFileGroupBy",
+        "fields": [
+          {
+            "name": "alternativeText",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFileConnectionAlternativeText",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "caption",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFileConnectionCaption",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "created_at",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFileConnectionCreated_at",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "ext",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFileConnectionExt",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "formats",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFileConnectionFormats",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "hash",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFileConnectionHash",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "height",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFileConnectionHeight",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFileConnectionId",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "mime",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFileConnectionMime",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "name",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFileConnectionName",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "previewUrl",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFileConnectionPreviewUrl",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "provider",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFileConnectionProvider",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "provider_metadata",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFileConnectionProvider_metadata",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "size",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFileConnectionSize",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "updated_at",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFileConnectionUpdated_at",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "url",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFileConnectionUrl",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "width",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UploadFileConnectionWidth",
+                "ofType": null
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UserPermissionsPasswordPayload",
+        "fields": [
+          {
+            "name": "ok",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsLoginPayload",
+        "fields": [
+          {
+            "name": "jwt",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "user",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsMe",
+                "ofType": null
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsMe",
+        "fields": [
+          {
+            "name": "blocked",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "confirmed",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "email",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "role",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsMeRole",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "username",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsMeRole",
+        "fields": [
+          {
+            "name": "description",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "name",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "type",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsPermission",
+        "fields": [
+          {
+            "name": "action",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "controller",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "enabled",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "policy",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "role",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsRole",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "type",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsRole",
+        "fields": [
+          {
+            "name": "description",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "name",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "permissions",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsPermission",
+                "ofType": null
+              }
+            },
+            "args": [
+              {
+                "name": "limit",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "sort",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "start",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "where",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "users",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsUser",
+                "ofType": null
+              }
+            },
+            "args": [
+              {
+                "name": "limit",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "sort",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "start",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "where",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsRoleAggregator",
+        "fields": [
+          {
+            "name": "count",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "totalCount",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsRoleConnection",
+        "fields": [
+          {
+            "name": "aggregate",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsRoleAggregator",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "groupBy",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsRoleGroupBy",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "values",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsRole",
+                "ofType": null
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsRoleConnectionDescription",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsRoleConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsRoleConnectionId",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsRoleConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsRoleConnectionName",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsRoleConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsRoleConnectionType",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsRoleConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsRoleGroupBy",
+        "fields": [
+          {
+            "name": "description",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsRoleConnectionDescription",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsRoleConnectionId",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "name",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsRoleConnectionName",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "type",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsRoleConnectionType",
+                "ofType": null
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsUser",
+        "fields": [
+          {
+            "name": "blocked",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "confirmed",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "created_at",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "email",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "provider",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "role",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsRole",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "updated_at",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "username",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsUserAggregator",
+        "fields": [
+          {
+            "name": "count",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "totalCount",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsUserConnection",
+        "fields": [
+          {
+            "name": "aggregate",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsUserAggregator",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "groupBy",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsUserGroupBy",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "values",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsUser",
+                "ofType": null
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsUserConnectionBlocked",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsUserConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsUserConnectionConfirmed",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsUserConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsUserConnectionCreated_at",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsUserConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsUserConnectionEmail",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsUserConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsUserConnectionId",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsUserConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsUserConnectionProvider",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsUserConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsUserConnectionRole",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsUserConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsUserConnectionUpdated_at",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsUserConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsUserConnectionUsername",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsUserConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UsersPermissionsUserGroupBy",
+        "fields": [
+          {
+            "name": "blocked",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsUserConnectionBlocked",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "confirmed",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsUserConnectionConfirmed",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "created_at",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsUserConnectionCreated_at",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "email",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsUserConnectionEmail",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsUserConnectionId",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "provider",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsUserConnectionProvider",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "role",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsUserConnectionRole",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "updated_at",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsUserConnectionUpdated_at",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "username",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UsersPermissionsUserConnectionUsername",
+                "ofType": null
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "createPostPayload",
+        "fields": [
+          {
+            "name": "post",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Post",
+              "ofType": null
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "createRolePayload",
+        "fields": [
+          {
+            "name": "role",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsRole",
+              "ofType": null
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "createUserPayload",
+        "fields": [
+          {
+            "name": "user",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsUser",
+              "ofType": null
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "deleteFilePayload",
+        "fields": [
+          {
+            "name": "file",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UploadFile",
+              "ofType": null
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "deletePostPayload",
+        "fields": [
+          {
+            "name": "post",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Post",
+              "ofType": null
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "deleteRolePayload",
+        "fields": [
+          {
+            "name": "role",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsRole",
+              "ofType": null
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "deleteUserPayload",
+        "fields": [
+          {
+            "name": "user",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsUser",
+              "ofType": null
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "updatePostPayload",
+        "fields": [
+          {
+            "name": "post",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Post",
+              "ofType": null
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "updateRolePayload",
+        "fields": [
+          {
+            "name": "role",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsRole",
+              "ofType": null
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "updateUserPayload",
+        "fields": [
+          {
+            "name": "user",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsUser",
+              "ofType": null
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "SCALAR",
+        "name": "Any"
+      }
+    ],
+    "directives": []
+  }
+}
