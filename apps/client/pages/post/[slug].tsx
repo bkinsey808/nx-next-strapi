@@ -45,14 +45,12 @@ function Post({ slug }) {
 }
 
 export async function getStaticPaths() {
-  console.log('get static paths');
   const { client } = getUrqlClient();
   const { data } = await client
     // we pass PostSlugsQuery as a generic type parameter so data gets typed
     .query<PostSlugsQuery>(POST_SLUGS_QUERY)
     .toPromise();
 
-  console.log(JSON.stringify(data));
   const paths = data.posts.map((post) => ({
     params: { slug: post.Slug },
   }));
