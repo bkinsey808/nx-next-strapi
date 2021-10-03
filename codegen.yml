@@ -9,6 +9,7 @@ generates:
       - 'typescript-urql'
     config:
       withHooks: true
+      nonOptionalTypename: true #Automatically adds __typename field to the generated types, even when they are not specified in the selection set, and makes it non-optional
   ./apps/client/graphql.schema.json:
     plugins:
       - 'urql-introspection'

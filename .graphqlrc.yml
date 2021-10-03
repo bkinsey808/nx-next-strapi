@@ -1,0 +1,6 @@
+schema: './apps/client/graphql.schema.json'
+documents: 'src/**/*.{graphql,js,ts,jsx,tsx}'
+extensions:
+  endpoints:
+    default:
+      url: 'http://localhost:1337/graphql' # this was meant for the vscode-graphql extension Execute Query codelens, but doesn't work for some reason

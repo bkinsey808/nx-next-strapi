@@ -1,5 +1,8 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "vscode-graphql.rejectUnauthorized": false,
+  "vscode-graphql.debug": true,
+  "vscode-graphql.showExecCodelens": false,
   "cSpell.words": ["codegen", "dedup", "devkit", "nrwl", "strapi", "urql"]
 }

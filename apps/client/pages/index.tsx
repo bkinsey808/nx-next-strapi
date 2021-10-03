@@ -17,9 +17,9 @@ const POSTS_QUERY = gql`
     }
   }
 `;
-
 export function Index() {
   const [{ data }] = usePostsQuery();
+
   return (
     <div>
       <h1>Posts</h1>
