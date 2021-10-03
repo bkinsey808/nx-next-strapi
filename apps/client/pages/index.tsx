@@ -1,12 +1,8 @@
-import {
-  cacheExchange,
-  dedupExchange,
-  fetchExchange,
-  gql,
-  ssrExchange,
-} from 'urql';
-import { initUrqlClient, withUrqlClient } from 'next-urql';
+import Link from 'next/link';
+import { gql } from 'urql';
 import { usePostsQuery } from '../graphql';
+import { withAppUrqlClient } from '../helpers/withAppUrqlClient';
+import { getUrqlClient } from '../helpers/getUrqlClient';
 
 const POSTS_QUERY = gql`
   query Posts {
@@ -14,9 +10,11 @@ const POSTS_QUERY = gql`
       id
       Title
       Content
+      Slug
     }
   }
 `;
+
 export function Index() {
   const [{ data }] = usePostsQuery();
 
@@ -25,7 +23,11 @@ export function Index() {
       <h1>Posts</h1>
       {data.posts.map((post) => (
         <div key={post.id}>
-          <h2>{post.Title}</h2>
+          <Link href={`/post/${post.Slug}`}>
+            <a>
+              <h2>{post.Title}</h2>
+            </a>
+          </Link>
           <div>{post.Content}</div>
         </div>
       ))}
@@ -34,14 +36,7 @@ export function Index() {
 }
 
 export async function getStaticProps(_ctx) {
-  const ssrCache = ssrExchange({ isClient: false });
-  const client = initUrqlClient(
-    {
-      url: process.env.NEXT_PUBLIC_CMS_GRAPHQL,
-      exchanges: [dedupExchange, cacheExchange, ssrCache, fetchExchange],
-    },
-    false // canEnableSuspense
-  );
+  const { client, ssrCache } = getUrqlClient();
 
   // This query is used to populate the cache for the query
   // used on this page.
@@ -56,9 +51,4 @@ export async function getStaticProps(_ctx) {
   };
 }
 
-export default withUrqlClient(
-  (_ssr) => ({
-    url: process.env.NEXT_PUBLIC_CMS_GRAPHQL,
-  }),
-  { ssr: false } // Important so we don't wrap our component in getInitialProps
-)(Index);
+export default withAppUrqlClient(Index);

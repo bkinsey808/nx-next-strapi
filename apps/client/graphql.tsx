@@ -1001,12 +1001,24 @@ export type UpdateUserPayload = {
 export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PostsQuery = { __typename: 'Query', posts?: Array<{ __typename: 'Post', id: string, Title?: string | null | undefined, Content?: string | null | undefined } | null | undefined> | null | undefined };
+export type PostsQuery = { __typename: 'Query', posts?: Array<{ __typename: 'Post', id: string, Title?: string | null | undefined, Content?: string | null | undefined, Slug?: string | null | undefined } | null | undefined> | null | undefined };
 
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type Unnamed_1_Query = { __typename: 'Query', posts?: Array<{ __typename: 'Post', id: string, Title?: string | null | undefined, Content?: string | null | undefined } | null | undefined> | null | undefined };
+
+export type PostQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type PostQuery = { __typename: 'Query', posts?: Array<{ __typename: 'Post', id: string, Title?: string | null | undefined, Content?: string | null | undefined, Slug?: string | null | undefined } | null | undefined> | null | undefined };
+
+export type PostSlugsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type PostSlugsQuery = { __typename: 'Query', posts?: Array<{ __typename: 'Post', Slug?: string | null | undefined } | null | undefined> | null | undefined };
 
 
 export const PostsDocument = gql`
@@ -1015,6 +1027,7 @@ export const PostsDocument = gql`
     id
     Title
     Content
+    Slug
   }
 }
     `;
@@ -1034,4 +1047,29 @@ export const Document = gql`
 
 export function useQuery(options: Omit<Urql.UseQueryArgs<QueryVariables>, 'query'> = {}) {
   return Urql.useQuery<Query>({ query: Document, ...options });
+};
+export const PostDocument = gql`
+    query Post($slug: String!) {
+  posts(where: {Slug: $slug}) {
+    id
+    Title
+    Content
+    Slug
+  }
+}
+    `;
+
+export function usePostQuery(options: Omit<Urql.UseQueryArgs<PostQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<PostQuery>({ query: PostDocument, ...options });
+};
+export const PostSlugsDocument = gql`
+    query PostSlugs {
+  posts {
+    Slug
+  }
+}
+    `;
+
+export function usePostSlugsQuery(options: Omit<Urql.UseQueryArgs<PostSlugsQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<PostSlugsQuery>({ query: PostSlugsDocument, ...options });
 };
