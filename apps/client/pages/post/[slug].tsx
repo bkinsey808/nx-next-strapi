@@ -51,7 +51,7 @@ export async function getStaticPaths() {
     .query<PostSlugsQuery>(POST_SLUGS_QUERY)
     .toPromise();
 
-  const paths = data.posts.map(({ Slug }) => ({
+  const paths = (data?.posts ?? [])?.map(({ Slug }) => ({
     params: { slug: Slug },
   }));
 

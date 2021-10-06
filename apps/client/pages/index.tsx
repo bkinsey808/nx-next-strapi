@@ -21,7 +21,7 @@ export function Index() {
   return (
     <div>
       <h1>Posts</h1>
-      {data.posts.map((post) => (
+      {data?.posts?.map((post) => (
         <div key={post.id}>
           <Link href={`/post/${post.Slug}`}>
             <a>
@@ -40,7 +40,8 @@ export async function getStaticProps(_ctx) {
 
   // This query is used to populate the cache for the query
   // used on this page.
-  await client.query(POSTS_QUERY).toPromise();
+  const res = await client.query(POSTS_QUERY).toPromise();
+  console.log(res);
 
   return {
     props: {

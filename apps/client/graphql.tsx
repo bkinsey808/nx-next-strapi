@@ -1003,11 +1003,6 @@ export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type PostsQuery = { __typename: 'Query', posts?: Array<{ __typename: 'Post', id: string, Title?: string | null | undefined, Content?: string | null | undefined, Slug?: string | null | undefined } | null | undefined> | null | undefined };
 
-export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type Unnamed_1_Query = { __typename: 'Query', posts?: Array<{ __typename: 'Post', id: string, Title?: string | null | undefined, Content?: string | null | undefined } | null | undefined> | null | undefined };
-
 export type PostQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
@@ -1034,19 +1029,6 @@ export const PostsDocument = gql`
 
 export function usePostsQuery(options: Omit<Urql.UseQueryArgs<PostsQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<PostsQuery>({ query: PostsDocument, ...options });
-};
-export const Document = gql`
-    {
-  posts {
-    id
-    Title
-    Content
-  }
-}
-    `;
-
-export function useQuery(options: Omit<Urql.UseQueryArgs<QueryVariables>, 'query'> = {}) {
-  return Urql.useQuery<Query>({ query: Document, ...options });
 };
 export const PostDocument = gql`
     query Post($slug: String!) {
