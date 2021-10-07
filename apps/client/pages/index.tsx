@@ -40,8 +40,7 @@ export async function getStaticProps(_ctx) {
 
   // This query is used to populate the cache for the query
   // used on this page.
-  const res = await client.query(POSTS_QUERY).toPromise();
-  console.log(res);
+  await client.query(POSTS_QUERY).toPromise();
 
   return {
     props: {
