@@ -4,6 +4,7 @@
   "editor.tabSize": 2,
   "vscode-graphql.rejectUnauthorized": false,
   "vscode-graphql.debug": true,
+  "vscode-graphql.trace.server": "on",
   "vscode-graphql.showExecCodelens": false,
   "cSpell.words": ["codegen", "dedup", "devkit", "nrwl", "strapi", "urql"],
   "cSpell.ignorePaths": ["apps/client/graphql.tsx", "settings.json"]
