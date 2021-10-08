@@ -4,7 +4,7 @@ import Head from 'next/head';
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
-        <Head>
+      <Head>
         <title>Welcome to client!</title>
       </Head>
       <div className="app">

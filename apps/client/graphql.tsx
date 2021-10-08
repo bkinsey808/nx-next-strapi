@@ -998,11 +998,6 @@ export type UpdateUserPayload = {
   user?: Maybe<UsersPermissionsUser>;
 };
 
-export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type PostsQuery = { __typename: 'Query', posts?: Array<{ __typename: 'Post', id: string, Title?: string | null | undefined, Content?: string | null | undefined, Slug?: string | null | undefined } | null | undefined> | null | undefined };
-
 export type LoginMutationVariables = Exact<{
   username: Scalars['String'];
   password: Scalars['String'];
@@ -1010,6 +1005,11 @@ export type LoginMutationVariables = Exact<{
 
 
 export type LoginMutation = { __typename: 'Mutation', login: { __typename: 'UsersPermissionsLoginPayload', jwt?: string | null | undefined, user: { __typename: 'UsersPermissionsMe', role?: { __typename: 'UsersPermissionsMeRole', name: string, description?: string | null | undefined, type?: string | null | undefined } | null | undefined } } };
+
+export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type PostsQuery = { __typename: 'Query', posts?: Array<{ __typename: 'Post', id: string, Title?: string | null | undefined, Content?: string | null | undefined, Slug?: string | null | undefined } | null | undefined> | null | undefined };
 
 export type PostQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -1024,20 +1024,6 @@ export type PostSlugsQueryVariables = Exact<{ [key: string]: never; }>;
 export type PostSlugsQuery = { __typename: 'Query', posts?: Array<{ __typename: 'Post', Slug?: string | null | undefined } | null | undefined> | null | undefined };
 
 
-export const PostsDocument = gql`
-    query Posts {
-  posts {
-    id
-    Title
-    Content
-    Slug
-  }
-}
-    `;
-
-export function usePostsQuery(options: Omit<Urql.UseQueryArgs<PostsQueryVariables>, 'query'> = {}) {
-  return Urql.useQuery<PostsQuery>({ query: PostsDocument, ...options });
-};
 export const LoginDocument = gql`
     mutation Login($username: String!, $password: String!) {
   login(input: {identifier: $username, password: $password}) {
@@ -1055,6 +1041,20 @@ export const LoginDocument = gql`
 
 export function useLoginMutation() {
   return Urql.useMutation<LoginMutation, LoginMutationVariables>(LoginDocument);
+};
+export const PostsDocument = gql`
+    query Posts {
+  posts {
+    id
+    Title
+    Content
+    Slug
+  }
+}
+    `;
+
+export function usePostsQuery(options: Omit<Urql.UseQueryArgs<PostsQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<PostsQuery>({ query: PostsDocument, ...options });
 };
 export const PostDocument = gql`
     query Post($slug: String!) {
