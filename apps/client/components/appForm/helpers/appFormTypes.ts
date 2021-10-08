@@ -16,6 +16,7 @@ export interface AppFieldConfig {
 }
 
 export type AppFormOptions<FieldValues> = {
+  formId: string;
   fieldConfig: AppFieldConfig;
   // eslint-disable-next-line @typescript-eslint/ban-types
   control: Control<FieldValues, object>;

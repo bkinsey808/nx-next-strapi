@@ -29,7 +29,7 @@ export const loginFieldConfig: AppFieldConfig = {
     label: 'Username',
     required: true,
     type: 'text',
-    yupValidation: yup.string(),
+    yupValidation: yup.string().min(3),
   },
   password: {
     label: 'Password',
@@ -61,12 +61,13 @@ export const useLogin = () => {
     formRef,
   });
 
-  const formOptions = getFormOptions<LoginFieldValues>(
-    loginFieldConfig,
+  const formOptions = getFormOptions<LoginFieldValues>({
+    formId: 'login',
+    fieldConfig: loginFieldConfig,
     control,
     formState,
-    trigger
-  );
+    trigger,
+  });
 
   return { sessionToken, formRef, onSubmit, formError, control, formOptions };
 };

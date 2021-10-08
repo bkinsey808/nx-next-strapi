@@ -10,6 +10,8 @@ import {
 import { AppFormOptions } from './helpers/appFormTypes';
 import { getHasError } from './helpers/getHasError';
 import { getHelperText } from './helpers/getHelperText';
+import { getInputOnBlur } from './helpers/getInputOnBlur';
+import { getInputOnChange } from './helpers/getInputOnChange';
 
 interface AppTextFieldProps<FormFieldTypes> {
   name: Path<FormFieldTypes>;
@@ -42,10 +44,14 @@ export const UnmemoizedAppTextField = <FormFieldTypes,>({
     return null;
   }
   const hasError = getHasError(name, formState);
+  const labelId = `${formOptions.formId}-${name}-label`;
+  const inputId = `${formOptions.formId}-${name}-input`;
 
   return (
     <>
-      <label htmlFor={name}>{label}</label>
+      <label id={labelId} htmlFor={inputId}>
+        {label}
+      </label>
       <Controller
         control={control}
         name={name as unknown as Path<FormFieldTypes>}
@@ -56,27 +62,14 @@ export const UnmemoizedAppTextField = <FormFieldTypes,>({
         }
         render={({ field: { onChange, onBlur, value } }) => (
           <input
-            // error={hasError}
+            id={inputId}
             required={required}
             value={value}
-            onChange={(e) => {
-              if (hasError) {
-                void trigger(name);
-              }
-              onChange(e);
-            }}
-            onBlur={(_e) => {
-              void trigger(name);
-              onBlur();
-            }}
-            // label={label}
+            onChange={getInputOnChange({ onChange, hasError, trigger, name })}
+            onBlur={getInputOnBlur({ onBlur, trigger, name })}
             type={type}
-            aria-labelledby={`field-label-${name}`}
-            // helperText={hasError && getHelperText(name, formState)}
+            aria-labelledby={labelId}
             name={name}
-            // inputProps={{
-            //   name, // used for getErrorHandler
-            // }}
           />
         )}
       />

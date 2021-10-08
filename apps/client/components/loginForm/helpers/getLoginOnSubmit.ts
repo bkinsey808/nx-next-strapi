@@ -14,7 +14,6 @@ const getOnValidSubmitHandler: GetOnValidSubmitHandler =
   async ({ username, password }) => {
     try {
       const { data, error } = await executeMutation({ username, password });
-      console.log({ data, error });
       if (error) {
         const isInvalid =
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -26,6 +25,7 @@ const getOnValidSubmitHandler: GetOnValidSubmitHandler =
           : 'Unknown error signing in';
         setFormError(errorMessage);
       }
+      console.log('success!', { data });
     } catch (err) {
       loginHandleError(err, setFormError);
     }
