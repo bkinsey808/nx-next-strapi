@@ -15,11 +15,17 @@ const getOnValidSubmitHandler: GetOnValidSubmitHandler =
     try {
       const { data, error } = await executeMutation({ username, password });
       console.log({ data, error });
-      console.log(
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (error?.graphQLErrors?.[0]?.originalError as any)?.extensions?.exception
-          ?.data?.message?.[0]?.messages?.[0]?.message
-      );
+      if (error) {
+        const isInvalid =
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (error?.graphQLErrors?.[0]?.originalError as any)?.extensions
+            ?.exception?.data?.message?.[0]?.messages?.[0]?.id ===
+          'Auth.form.error.invalid';
+        const errorMessage = isInvalid
+          ? 'Username or Password is invalid'
+          : 'Unknown error signing in';
+        setFormError(errorMessage);
+      }
     } catch (err) {
       loginHandleError(err, setFormError);
     }
