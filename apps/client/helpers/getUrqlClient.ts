@@ -1,6 +1,4 @@
-import {
-  ssrExchange,
-} from '@urql/core';
+import { ssrExchange } from '@urql/core';
 import { initUrqlClient } from 'next-urql';
 import { getUrqlClientOptions } from './getUrqlClientOptions';
 

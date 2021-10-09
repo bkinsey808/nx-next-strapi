@@ -73,6 +73,7 @@ export const getUrqlClientOptions = (
       addAuthToOperation,
       didAuthError,
     }),
+    ssrCache,
     fetchExchange,
   ],
 });
