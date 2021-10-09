@@ -10,6 +10,9 @@ import { SSRExchange } from 'next-urql';
 import { makeOperation } from 'urql';
 
 const getAuth = async ({ authState }) => {
+  if (typeof window === 'undefined') {
+    return { authState };
+  }
   console.log({ authState });
   if (!authState) {
     const token =
@@ -62,18 +65,30 @@ const didAuthError = ({ error }) => {
 
 export const getUrqlClientOptions = (
   ssrCache: SSRExchange = ssrExchange({ isClient: true })
-) => ({
-  url: process.env.NEXT_PUBLIC_CMS_GRAPHQL,
-  exchanges: [
-    devtoolsExchange,
-    dedupExchange,
-    cacheExchange,
-    authExchange({
-      getAuth,
-      addAuthToOperation,
-      didAuthError,
-    }),
-    ssrCache,
-    fetchExchange,
-  ],
-});
+) => {
+  if (typeof window !== 'undefined') {
+    console.log('client');
+    return {
+      url: process.env.NEXT_PUBLIC_CMS_GRAPHQL,
+      exchanges: [
+        devtoolsExchange,
+        dedupExchange,
+        cacheExchange,
+        authExchange({ getAuth, addAuthToOperation, didAuthError }),
+        ssrCache,
+        fetchExchange,
+      ],
+    };
+  }
+  console.log('server');
+  return {
+    url: process.env.NEXT_PUBLIC_CMS_GRAPHQL,
+    exchanges: [
+      devtoolsExchange,
+      dedupExchange,
+      cacheExchange,
+      ssrCache,
+      fetchExchange,
+    ],
+  };
+};

@@ -1,8 +1,6 @@
 import { withUrqlClient } from 'next-urql';
+import { getUrqlClientOptions } from './getUrqlClientOptions';
 
-export const withAppUrqlClient = withUrqlClient(
-  (_ssr) => ({
-    url: process.env.NEXT_PUBLIC_CMS_GRAPHQL,
-  }),
-  { ssr: false } // Important so we don't wrap our component in getInitialProps
-);
+export const withAppUrqlClient = withUrqlClient(getUrqlClientOptions, {
+  ssr: false,
+});
