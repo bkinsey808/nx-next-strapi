@@ -1,5 +1,12 @@
-import { Dispatch, SetStateAction } from 'react';
-import { Control, FormState, UseFormTrigger } from 'react-hook-form/dist/types';
+import { Dispatch, MutableRefObject, SetStateAction } from 'react';
+import {
+  Control,
+  FormState,
+  UnpackNestedValue,
+  UseFormHandleSubmit,
+  UseFormTrigger,
+} from 'react-hook-form/dist/types';
+import { OperationContext, OperationResult } from 'urql';
 import * as yup from 'yup';
 import { RequiredStringSchema } from 'yup/lib/string';
 
@@ -29,3 +36,38 @@ export type AppFormHandleError = (
   err: any,
   setFormError: Dispatch<SetStateAction<string | undefined>>
 ) => void;
+
+export interface GetOnSubmitOptions<
+  FormFieldValues,
+  MutationVariables,
+  MutationType
+> {
+  executeMutation: (
+    variables?: MutationVariables,
+    context?: Partial<OperationContext>
+  ) => Promise<OperationResult<MutationType, MutationVariables>>;
+  setFormError: Dispatch<SetStateAction<string | undefined>>;
+  handleSubmit: UseFormHandleSubmit<FormFieldValues>;
+  formRef: MutableRefObject<HTMLFormElement | null>;
+}
+
+export type GetMutationOnSubmit<
+  FormFieldValues,
+  MutationVariables,
+  MutationType
+> = (
+  options: GetOnSubmitOptions<FormFieldValues, MutationVariables, MutationType>
+) => () => void;
+
+export type GetOnValidMutationSubmitHandler<
+  FormFieldValues,
+  MutationVariables,
+  MutationType
+> = (
+  options: Omit<
+    GetOnSubmitOptions<FormFieldValues, MutationVariables, MutationType>,
+    'handleSubmit' | 'formRef'
+  >
+) => (
+  confirmFieldValues: UnpackNestedValue<MutationVariables>
+) => Promise<void>;

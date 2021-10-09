@@ -34,6 +34,83 @@ export type AdminUser = {
   username?: Maybe<Scalars['String']>;
 };
 
+export type Comment = {
+  __typename: 'Comment';
+  Author?: Maybe<UsersPermissionsUser>;
+  Comment?: Maybe<Scalars['String']>;
+  Post?: Maybe<Post>;
+  created_at: Scalars['DateTime'];
+  id: Scalars['ID'];
+  updated_at: Scalars['DateTime'];
+};
+
+export type CommentAggregator = {
+  __typename: 'CommentAggregator';
+  count?: Maybe<Scalars['Int']>;
+  totalCount?: Maybe<Scalars['Int']>;
+};
+
+export type CommentConnection = {
+  __typename: 'CommentConnection';
+  aggregate?: Maybe<CommentAggregator>;
+  groupBy?: Maybe<CommentGroupBy>;
+  values?: Maybe<Array<Maybe<Comment>>>;
+};
+
+export type CommentConnectionAuthor = {
+  __typename: 'CommentConnectionAuthor';
+  connection?: Maybe<CommentConnection>;
+  key?: Maybe<Scalars['ID']>;
+};
+
+export type CommentConnectionComment = {
+  __typename: 'CommentConnectionComment';
+  connection?: Maybe<CommentConnection>;
+  key?: Maybe<Scalars['String']>;
+};
+
+export type CommentConnectionCreated_At = {
+  __typename: 'CommentConnectionCreated_at';
+  connection?: Maybe<CommentConnection>;
+  key?: Maybe<Scalars['DateTime']>;
+};
+
+export type CommentConnectionId = {
+  __typename: 'CommentConnectionId';
+  connection?: Maybe<CommentConnection>;
+  key?: Maybe<Scalars['ID']>;
+};
+
+export type CommentConnectionPost = {
+  __typename: 'CommentConnectionPost';
+  connection?: Maybe<CommentConnection>;
+  key?: Maybe<Scalars['ID']>;
+};
+
+export type CommentConnectionUpdated_At = {
+  __typename: 'CommentConnectionUpdated_at';
+  connection?: Maybe<CommentConnection>;
+  key?: Maybe<Scalars['DateTime']>;
+};
+
+export type CommentGroupBy = {
+  __typename: 'CommentGroupBy';
+  Author?: Maybe<Array<Maybe<CommentConnectionAuthor>>>;
+  Comment?: Maybe<Array<Maybe<CommentConnectionComment>>>;
+  Post?: Maybe<Array<Maybe<CommentConnectionPost>>>;
+  created_at?: Maybe<Array<Maybe<CommentConnectionCreated_At>>>;
+  id?: Maybe<Array<Maybe<CommentConnectionId>>>;
+  updated_at?: Maybe<Array<Maybe<CommentConnectionUpdated_At>>>;
+};
+
+export type CommentInput = {
+  Author?: Maybe<Scalars['ID']>;
+  Comment?: Maybe<Scalars['String']>;
+  Post?: Maybe<Scalars['ID']>;
+  created_by?: Maybe<Scalars['ID']>;
+  updated_by?: Maybe<Scalars['ID']>;
+};
+
 export type FileInfoInput = {
   alternativeText?: Maybe<Scalars['String']>;
   caption?: Maybe<Scalars['String']>;
@@ -80,15 +157,17 @@ export type LocaleInput = {
   updated_by?: Maybe<Scalars['ID']>;
 };
 
-export type Morph = I18NLocale | Post | PostAggregator | PostConnection | PostConnectionContent | PostConnectionCreated_At | PostConnectionId | PostConnectionPublished_At | PostConnectionSlug | PostConnectionTitle | PostConnectionUpdated_At | PostGroupBy | UploadFile | UploadFileAggregator | UploadFileAggregatorAvg | UploadFileAggregatorMax | UploadFileAggregatorMin | UploadFileAggregatorSum | UploadFileConnection | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionCreated_At | UploadFileConnectionExt | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionHeight | UploadFileConnectionId | UploadFileConnectionMime | UploadFileConnectionName | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | UploadFileConnectionSize | UploadFileConnectionUpdated_At | UploadFileConnectionUrl | UploadFileConnectionWidth | UploadFileGroupBy | UserPermissionsPasswordPayload | UsersPermissionsLoginPayload | UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleAggregator | UsersPermissionsRoleConnection | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionType | UsersPermissionsRoleGroupBy | UsersPermissionsUser | UsersPermissionsUserAggregator | UsersPermissionsUserConnection | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionCreated_At | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionUpdated_At | UsersPermissionsUserConnectionUsername | UsersPermissionsUserGroupBy | CreatePostPayload | CreateRolePayload | CreateUserPayload | DeleteFilePayload | DeletePostPayload | DeleteRolePayload | DeleteUserPayload | UpdatePostPayload | UpdateRolePayload | UpdateUserPayload;
+export type Morph = Comment | CommentAggregator | CommentConnection | CommentConnectionAuthor | CommentConnectionComment | CommentConnectionCreated_At | CommentConnectionId | CommentConnectionPost | CommentConnectionUpdated_At | CommentGroupBy | I18NLocale | Post | PostAggregator | PostConnection | PostConnectionContent | PostConnectionCreated_At | PostConnectionId | PostConnectionPublished_At | PostConnectionSlug | PostConnectionTitle | PostConnectionUpdated_At | PostGroupBy | UploadFile | UploadFileAggregator | UploadFileAggregatorAvg | UploadFileAggregatorMax | UploadFileAggregatorMin | UploadFileAggregatorSum | UploadFileConnection | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionCreated_At | UploadFileConnectionExt | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionHeight | UploadFileConnectionId | UploadFileConnectionMime | UploadFileConnectionName | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | UploadFileConnectionSize | UploadFileConnectionUpdated_At | UploadFileConnectionUrl | UploadFileConnectionWidth | UploadFileGroupBy | UserPermissionsPasswordPayload | UsersPermissionsLoginPayload | UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleAggregator | UsersPermissionsRoleConnection | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionType | UsersPermissionsRoleGroupBy | UsersPermissionsUser | UsersPermissionsUserAggregator | UsersPermissionsUserConnection | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionCreated_At | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionUpdated_At | UsersPermissionsUserConnectionUsername | UsersPermissionsUserGroupBy | CreateCommentPayload | CreatePostPayload | CreateRolePayload | CreateUserPayload | DeleteCommentPayload | DeleteFilePayload | DeletePostPayload | DeleteRolePayload | DeleteUserPayload | UpdateCommentPayload | UpdatePostPayload | UpdateRolePayload | UpdateUserPayload;
 
 export type Mutation = {
   __typename: 'Mutation';
+  createComment?: Maybe<CreateCommentPayload>;
   createPost?: Maybe<CreatePostPayload>;
   /** Create a new role */
   createRole?: Maybe<CreateRolePayload>;
   /** Create a new user */
   createUser?: Maybe<CreateUserPayload>;
+  deleteComment?: Maybe<DeleteCommentPayload>;
   /** Delete one file */
   deleteFile?: Maybe<DeleteFilePayload>;
   deletePost?: Maybe<DeletePostPayload>;
@@ -102,6 +181,7 @@ export type Mutation = {
   multipleUpload: Array<Maybe<UploadFile>>;
   register: UsersPermissionsLoginPayload;
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
+  updateComment?: Maybe<UpdateCommentPayload>;
   updateFileInfo: UploadFile;
   updatePost?: Maybe<UpdatePostPayload>;
   /** Update an existing role */
@@ -109,6 +189,11 @@ export type Mutation = {
   /** Update an existing user */
   updateUser?: Maybe<UpdateUserPayload>;
   upload: UploadFile;
+};
+
+
+export type MutationCreateCommentArgs = {
+  input?: Maybe<CreateCommentInput>;
 };
 
 
@@ -124,6 +209,11 @@ export type MutationCreateRoleArgs = {
 
 export type MutationCreateUserArgs = {
   input?: Maybe<CreateUserInput>;
+};
+
+
+export type MutationDeleteCommentArgs = {
+  input?: Maybe<DeleteCommentInput>;
 };
 
 
@@ -183,6 +273,11 @@ export type MutationResetPasswordArgs = {
 };
 
 
+export type MutationUpdateCommentArgs = {
+  input?: Maybe<UpdateCommentInput>;
+};
+
+
 export type MutationUpdateFileInfoArgs = {
   id: Scalars['ID'];
   info: FileInfoInput;
@@ -218,10 +313,19 @@ export type Post = {
   Content?: Maybe<Scalars['String']>;
   Slug?: Maybe<Scalars['String']>;
   Title?: Maybe<Scalars['String']>;
+  comments?: Maybe<Array<Maybe<Comment>>>;
   created_at: Scalars['DateTime'];
   id: Scalars['ID'];
   published_at?: Maybe<Scalars['DateTime']>;
   updated_at: Scalars['DateTime'];
+};
+
+
+export type PostCommentsArgs = {
+  limit?: Maybe<Scalars['Int']>;
+  sort?: Maybe<Scalars['String']>;
+  start?: Maybe<Scalars['Int']>;
+  where?: Maybe<Scalars['JSON']>;
 };
 
 export type PostAggregator = {
@@ -294,6 +398,7 @@ export type PostInput = {
   Content?: Maybe<Scalars['String']>;
   Slug?: Maybe<Scalars['String']>;
   Title?: Maybe<Scalars['String']>;
+  comments?: Maybe<Array<Maybe<Scalars['ID']>>>;
   created_by?: Maybe<Scalars['ID']>;
   published_at?: Maybe<Scalars['DateTime']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -306,6 +411,9 @@ export enum PublicationState {
 
 export type Query = {
   __typename: 'Query';
+  comment?: Maybe<Comment>;
+  comments?: Maybe<Array<Maybe<Comment>>>;
+  commentsConnection?: Maybe<CommentConnection>;
   files?: Maybe<Array<Maybe<UploadFile>>>;
   filesConnection?: Maybe<UploadFileConnection>;
   me?: Maybe<UsersPermissionsMe>;
@@ -319,6 +427,29 @@ export type Query = {
   user?: Maybe<UsersPermissionsUser>;
   users?: Maybe<Array<Maybe<UsersPermissionsUser>>>;
   usersConnection?: Maybe<UsersPermissionsUserConnection>;
+};
+
+
+export type QueryCommentArgs = {
+  id: Scalars['ID'];
+  publicationState?: Maybe<PublicationState>;
+};
+
+
+export type QueryCommentsArgs = {
+  limit?: Maybe<Scalars['Int']>;
+  publicationState?: Maybe<PublicationState>;
+  sort?: Maybe<Scalars['String']>;
+  start?: Maybe<Scalars['Int']>;
+  where?: Maybe<Scalars['JSON']>;
+};
+
+
+export type QueryCommentsConnectionArgs = {
+  limit?: Maybe<Scalars['Int']>;
+  sort?: Maybe<Scalars['String']>;
+  start?: Maybe<Scalars['Int']>;
+  where?: Maybe<Scalars['JSON']>;
 };
 
 
@@ -845,6 +976,15 @@ export type UsersPermissionsUserGroupBy = {
   username?: Maybe<Array<Maybe<UsersPermissionsUserConnectionUsername>>>;
 };
 
+export type CreateCommentInput = {
+  data?: Maybe<CommentInput>;
+};
+
+export type CreateCommentPayload = {
+  __typename: 'createCommentPayload';
+  comment?: Maybe<Comment>;
+};
+
 export type CreatePostInput = {
   data?: Maybe<PostInput>;
 };
@@ -870,6 +1010,15 @@ export type CreateUserInput = {
 export type CreateUserPayload = {
   __typename: 'createUserPayload';
   user?: Maybe<UsersPermissionsUser>;
+};
+
+export type DeleteCommentInput = {
+  where?: Maybe<InputId>;
+};
+
+export type DeleteCommentPayload = {
+  __typename: 'deleteCommentPayload';
+  comment?: Maybe<Comment>;
 };
 
 export type DeleteFileInput = {
@@ -908,6 +1057,14 @@ export type DeleteUserPayload = {
   user?: Maybe<UsersPermissionsUser>;
 };
 
+export type EditCommentInput = {
+  Author?: Maybe<Scalars['ID']>;
+  Comment?: Maybe<Scalars['String']>;
+  Post?: Maybe<Scalars['ID']>;
+  created_by?: Maybe<Scalars['ID']>;
+  updated_by?: Maybe<Scalars['ID']>;
+};
+
 export type EditFileInput = {
   alternativeText?: Maybe<Scalars['String']>;
   caption?: Maybe<Scalars['String']>;
@@ -939,6 +1096,7 @@ export type EditPostInput = {
   Content?: Maybe<Scalars['String']>;
   Slug?: Maybe<Scalars['String']>;
   Title?: Maybe<Scalars['String']>;
+  comments?: Maybe<Array<Maybe<Scalars['ID']>>>;
   created_by?: Maybe<Scalars['ID']>;
   published_at?: Maybe<Scalars['DateTime']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -966,6 +1124,16 @@ export type EditUserInput = {
   role?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
   username?: Maybe<Scalars['String']>;
+};
+
+export type UpdateCommentInput = {
+  data?: Maybe<EditCommentInput>;
+  where?: Maybe<InputId>;
+};
+
+export type UpdateCommentPayload = {
+  __typename: 'updateCommentPayload';
+  comment?: Maybe<Comment>;
 };
 
 export type UpdatePostInput = {
@@ -1006,6 +1174,15 @@ export type LoginMutationVariables = Exact<{
 
 export type LoginMutation = { __typename: 'Mutation', login: { __typename: 'UsersPermissionsLoginPayload', jwt?: string | null | undefined, user: { __typename: 'UsersPermissionsMe', role?: { __typename: 'UsersPermissionsMeRole', name: string, description?: string | null | undefined, type?: string | null | undefined } | null | undefined } } };
 
+export type RegisterMutationVariables = Exact<{
+  username: Scalars['String'];
+  email: Scalars['String'];
+  password: Scalars['String'];
+}>;
+
+
+export type RegisterMutation = { __typename: 'Mutation', register: { __typename: 'UsersPermissionsLoginPayload', jwt?: string | null | undefined, user: { __typename: 'UsersPermissionsMe', role?: { __typename: 'UsersPermissionsMeRole', name: string, description?: string | null | undefined, type?: string | null | undefined } | null | undefined } } };
+
 export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1041,6 +1218,24 @@ export const LoginDocument = gql`
 
 export function useLoginMutation() {
   return Urql.useMutation<LoginMutation, LoginMutationVariables>(LoginDocument);
+};
+export const RegisterDocument = gql`
+    mutation Register($username: String!, $email: String!, $password: String!) {
+  register(input: {username: $username, email: $email, password: $password}) {
+    jwt
+    user {
+      role {
+        name
+        description
+        type
+      }
+    }
+  }
+}
+    `;
+
+export function useRegisterMutation() {
+  return Urql.useMutation<RegisterMutation, RegisterMutationVariables>(RegisterDocument);
 };
 export const PostsDocument = gql`
     query Posts {

@@ -58,6 +58,355 @@
       },
       {
         "kind": "OBJECT",
+        "name": "Comment",
+        "fields": [
+          {
+            "name": "Author",
+            "type": {
+              "kind": "OBJECT",
+              "name": "UsersPermissionsUser",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "Comment",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "Post",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Post",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "created_at",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "updated_at",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "CommentAggregator",
+        "fields": [
+          {
+            "name": "count",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "totalCount",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "CommentConnection",
+        "fields": [
+          {
+            "name": "aggregate",
+            "type": {
+              "kind": "OBJECT",
+              "name": "CommentAggregator",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "groupBy",
+            "type": {
+              "kind": "OBJECT",
+              "name": "CommentGroupBy",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "values",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Comment",
+                "ofType": null
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "CommentConnectionAuthor",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "CommentConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "CommentConnectionComment",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "CommentConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "CommentConnectionCreated_at",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "CommentConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "CommentConnectionId",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "CommentConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "CommentConnectionPost",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "CommentConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "CommentConnectionUpdated_at",
+        "fields": [
+          {
+            "name": "connection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "CommentConnection",
+              "ofType": null
+            },
+            "args": []
+          },
+          {
+            "name": "key",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "CommentGroupBy",
+        "fields": [
+          {
+            "name": "Author",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "CommentConnectionAuthor",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "Comment",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "CommentConnectionComment",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "Post",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "CommentConnectionPost",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "created_at",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "CommentConnectionCreated_at",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "id",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "CommentConnectionId",
+                "ofType": null
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "updated_at",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "CommentConnectionUpdated_at",
+                "ofType": null
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
         "name": "I18NLocale",
         "fields": [
           {
@@ -116,6 +465,46 @@
         "kind": "UNION",
         "name": "Morph",
         "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "Comment"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CommentAggregator"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CommentConnection"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CommentConnectionAuthor"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CommentConnectionComment"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CommentConnectionCreated_at"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CommentConnectionId"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CommentConnectionPost"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CommentConnectionUpdated_at"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CommentGroupBy"
+          },
           {
             "kind": "OBJECT",
             "name": "I18NLocale"
@@ -370,6 +759,10 @@
           },
           {
             "kind": "OBJECT",
+            "name": "createCommentPayload"
+          },
+          {
+            "kind": "OBJECT",
             "name": "createPostPayload"
           },
           {
@@ -379,6 +772,10 @@
           {
             "kind": "OBJECT",
             "name": "createUserPayload"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "deleteCommentPayload"
           },
           {
             "kind": "OBJECT",
@@ -398,6 +795,10 @@
           },
           {
             "kind": "OBJECT",
+            "name": "updateCommentPayload"
+          },
+          {
+            "kind": "OBJECT",
             "name": "updatePostPayload"
           },
           {
@@ -414,6 +815,23 @@
         "kind": "OBJECT",
         "name": "Mutation",
         "fields": [
+          {
+            "name": "createComment",
+            "type": {
+              "kind": "OBJECT",
+              "name": "createCommentPayload",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "input",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
           {
             "name": "createPost",
             "type": {
@@ -453,6 +871,23 @@
             "type": {
               "kind": "OBJECT",
               "name": "createUserPayload",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "input",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "deleteComment",
+            "type": {
+              "kind": "OBJECT",
+              "name": "deleteCommentPayload",
               "ofType": null
             },
             "args": [
@@ -717,6 +1152,23 @@
             ]
           },
           {
+            "name": "updateComment",
+            "type": {
+              "kind": "OBJECT",
+              "name": "updateCommentPayload",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "input",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
             "name": "updateFileInfo",
             "type": {
               "kind": "NON_NULL",
@@ -888,6 +1340,47 @@
               "name": "Any"
             },
             "args": []
+          },
+          {
+            "name": "comments",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Comment",
+                "ofType": null
+              }
+            },
+            "args": [
+              {
+                "name": "limit",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "sort",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "start",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "where",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
           },
           {
             "name": "created_at",
@@ -1256,6 +1749,119 @@
         "kind": "OBJECT",
         "name": "Query",
         "fields": [
+          {
+            "name": "comment",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Comment",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "id",
+                "type": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              },
+              {
+                "name": "publicationState",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "comments",
+            "type": {
+              "kind": "LIST",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Comment",
+                "ofType": null
+              }
+            },
+            "args": [
+              {
+                "name": "limit",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "publicationState",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "sort",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "start",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "where",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
+          {
+            "name": "commentsConnection",
+            "type": {
+              "kind": "OBJECT",
+              "name": "CommentConnection",
+              "ofType": null
+            },
+            "args": [
+              {
+                "name": "limit",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "sort",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "start",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              {
+                "name": "where",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              }
+            ]
+          },
           {
             "name": "files",
             "type": {
@@ -3803,6 +4409,22 @@
       },
       {
         "kind": "OBJECT",
+        "name": "createCommentPayload",
+        "fields": [
+          {
+            "name": "comment",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Comment",
+              "ofType": null
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
         "name": "createPostPayload",
         "fields": [
           {
@@ -3842,6 +4464,22 @@
             "type": {
               "kind": "OBJECT",
               "name": "UsersPermissionsUser",
+              "ofType": null
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "deleteCommentPayload",
+        "fields": [
+          {
+            "name": "comment",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Comment",
               "ofType": null
             },
             "args": []
@@ -3906,6 +4544,22 @@
             "type": {
               "kind": "OBJECT",
               "name": "UsersPermissionsUser",
+              "ofType": null
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "updateCommentPayload",
+        "fields": [
+          {
+            "name": "comment",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Comment",
               "ofType": null
             },
             "args": []

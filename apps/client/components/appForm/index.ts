@@ -6,4 +6,7 @@ export { getErrorHandler } from './helpers/getErrorHandler';
 export type {
   AppFieldConfig,
   AppFormHandleError,
+  GetOnSubmitOptions,
+  GetOnValidMutationSubmitHandler,
+  GetMutationOnSubmit,
 } from './helpers/appFormTypes';
