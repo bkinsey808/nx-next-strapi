@@ -1,5 +1,5 @@
 import LoginForm from '../components/loginForm/loginForm';
-import { withAppUrqlClient } from '../helpers/withAppUrqlClient';
+import { withNoAuthUrqlClient } from '../helpers/withAppUrqlClient';
 
 export function Login() {
   return (
@@ -11,4 +11,4 @@ export function Login() {
 }
 
 // export default Login;
-export default withAppUrqlClient(Login);
+export default withNoAuthUrqlClient(Login);

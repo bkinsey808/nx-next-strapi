@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { gql } from 'urql';
-import { usePostsQuery } from '../graphql';
-import { withNoAuthUrqlClient } from '../helpers/withAppUrqlClient';
-import { getUrqlClient } from '../helpers/getUrqlClient';
+import { usePostsQuery } from '../../graphql';
+import { withAuthUrqlClient } from '../../helpers/withAppUrqlClient';
+import { getUrqlClient } from '../../helpers/getUrqlClient';
 
 const POSTS_QUERY = gql`
   query Posts {
@@ -19,7 +19,7 @@ export function Index() {
   const [{ data }] = usePostsQuery();
   return (
     <div>
-      <h1>Posts</h1>
+      <h1>SecretStuff</h1>
       {data?.posts?.map((post) => (
         <div key={post.id}>
           <Link href={`/post/${post.Slug}`}>
@@ -50,4 +50,4 @@ export async function getStaticProps(_ctx) {
   };
 }
 
-export default withNoAuthUrqlClient(Index);
+export default withAuthUrqlClient(Index);

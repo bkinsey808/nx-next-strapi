@@ -63,32 +63,19 @@ const didAuthError = ({ error }) => {
   return error.graphQLErrors.some((e) => e.extensions?.code === 'FORBIDDEN');
 };
 
-export const getUrqlClientOptions = (
-  ssrCache: SSRExchange = ssrExchange({ isClient: true })
-) => {
-  if (typeof window !== 'undefined') {
-    console.log('client');
-    return {
-      url: process.env.NEXT_PUBLIC_CMS_GRAPHQL,
-      exchanges: [
-        devtoolsExchange,
-        dedupExchange,
-        cacheExchange,
-        authExchange({ getAuth, addAuthToOperation, didAuthError }),
-        ssrCache,
-        fetchExchange,
-      ],
-    };
-  }
-  console.log('server');
-  return {
+export const getUrqlClientOptions =
+  (withAuth: boolean) =>
+  (ssrCache: SSRExchange = ssrExchange({ isClient: true })) => ({
     url: process.env.NEXT_PUBLIC_CMS_GRAPHQL,
     exchanges: [
       devtoolsExchange,
       dedupExchange,
       cacheExchange,
+      // for some reason, authExchange cannot be used on any page that should be SSR'd
+      ...(withAuth
+        ? [authExchange({ getAuth, addAuthToOperation, didAuthError })]
+        : []),
       ssrCache,
       fetchExchange,
     ],
-  };
-};
+  });

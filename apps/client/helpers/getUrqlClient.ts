@@ -5,7 +5,7 @@ import { getUrqlClientOptions } from './getUrqlClientOptions';
 export function getUrqlClient() {
   const ssrCache = ssrExchange({ isClient: false });
   const client = initUrqlClient(
-    getUrqlClientOptions(ssrCache),
+    getUrqlClientOptions(false)(ssrCache),
     false // canEnableSuspense
   );
 

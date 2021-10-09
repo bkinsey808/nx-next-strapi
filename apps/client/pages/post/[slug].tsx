@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { gql } from 'urql';
 import { getUrqlClient } from '../../helpers/getUrqlClient';
-import { withAppUrqlClient } from '../../helpers/withAppUrqlClient';
+import { withNoAuthUrqlClient } from '../../helpers/withAppUrqlClient';
 import { PostSlugsQuery, usePostQuery } from '../../graphql';
 
 const POST_QUERY = gql`
@@ -76,4 +76,4 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default withAppUrqlClient(Post);
+export default withNoAuthUrqlClient(Post);
