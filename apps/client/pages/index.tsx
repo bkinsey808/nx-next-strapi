@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { gql } from 'urql';
 import { usePostsQuery } from '../graphql';
 import { withNoAuthUrqlClient } from '../helpers/withAppUrqlClient';
-import { getUrqlClient } from '../helpers/getUrqlClient';
+import { getSsrUrqlClient } from '../helpers/getUrqlClient';
 
 const POSTS_QUERY = gql`
   query Posts {
@@ -35,7 +35,7 @@ export function Index() {
 }
 
 export async function getStaticProps(_ctx) {
-  const { client, ssrCache } = getUrqlClient();
+  const { client, ssrCache } = getSsrUrqlClient();
 
   // This query is used to populate the cache for the query
   // used on this page.

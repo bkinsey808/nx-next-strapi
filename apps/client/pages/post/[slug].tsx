@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { gql } from 'urql';
-import { getUrqlClient } from '../../helpers/getUrqlClient';
+import { getSsrUrqlClient } from '../../helpers/getUrqlClient';
 import { withNoAuthUrqlClient } from '../../helpers/withAppUrqlClient';
 import { PostSlugsQuery, usePostQuery } from '../../graphql';
 
@@ -45,7 +45,7 @@ function Post({ slug }) {
 }
 
 export async function getStaticPaths() {
-  const { client } = getUrqlClient();
+  const { client } = getSsrUrqlClient();
   const { data } = await client
     // we pass PostSlugsQuery as a generic type parameter so data gets typed
     .query<PostSlugsQuery>(POST_SLUGS_QUERY)
@@ -60,7 +60,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const { client, ssrCache } = getUrqlClient();
+  const { client, ssrCache } = getSsrUrqlClient();
 
   // This query is used to populate the cache for the query
   // used on this page.
