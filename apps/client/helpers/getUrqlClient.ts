@@ -1,18 +1,13 @@
 import {
   ssrExchange,
-  dedupExchange,
-  cacheExchange,
-  fetchExchange,
 } from '@urql/core';
 import { initUrqlClient } from 'next-urql';
+import { getUrqlClientOptions } from './getUrqlClientOptions';
 
 export function getUrqlClient() {
   const ssrCache = ssrExchange({ isClient: false });
   const client = initUrqlClient(
-    {
-      url: process.env.NEXT_PUBLIC_CMS_GRAPHQL,
-      exchanges: [dedupExchange, cacheExchange, ssrCache, fetchExchange],
-    },
+    getUrqlClientOptions(ssrCache),
     false // canEnableSuspense
   );
 

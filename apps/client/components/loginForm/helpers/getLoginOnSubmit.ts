@@ -1,3 +1,4 @@
+import Router from 'next/router';
 import { AppFormHandleError, getErrorHandler } from '../../appForm';
 import { GetLoginOnSubmit, GetOnValidSubmitHandler } from './loginTypes';
 
@@ -24,9 +25,13 @@ const getOnValidSubmitHandler: GetOnValidSubmitHandler =
           ? 'Username or Password is invalid'
           : 'Unknown error signing in';
         setFormError(errorMessage);
+      } else {
+        console.log('success!', { data });
+        window.localStorage.setItem('token', data.login.jwt);
+        Router.push('/');
       }
-      console.log('success!', { data });
     } catch (err) {
+      console.log({ err });
       loginHandleError(err, setFormError);
     }
   };

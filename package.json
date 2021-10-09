@@ -5,6 +5,7 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
+    "serve-cms-prod": "cd apps/cms && NODE_ENV=production yarn start",
     "test": "nx test",
     "codegen": "graphql-codegen",
     "codegen-watch": "graphql-codegen --watch"
@@ -13,6 +14,8 @@
   "dependencies": {
     "@hookform/resolvers": "^2.8.2",
     "@nrwl/next": "12.9.0",
+    "@urql/devtools": "^2.0.3",
+    "@urql/exchange-auth": "^0.1.6",
     "core-js": "^3.6.5",
     "graphql": "^15.6.0",
     "next": "11.1.0",
