@@ -6,7 +6,7 @@ import { gql } from 'urql';
 import * as yup from 'yup';
 
 import { AppFieldConfig, getFormOptions, getYupSchema } from '../appForm';
-import { getOnValidSubmitHandler } from './helpers/getLoginOnSubmit';
+import { getLoginOnValidSubmitHandler } from './helpers/getLoginOnValidSubmitHandler';
 import { LoginFieldValues, LoginVariables } from './helpers/loginTypes';
 import { getMutationOnSubmit } from '../appForm/helpers/getMutationOnSubmit';
 
@@ -58,7 +58,7 @@ export const useLogin = () => {
     LoginVariables,
     LoginMutation
   >({
-    getOnValidSubmitHandler,
+    getOnValidSubmitHandler: getLoginOnValidSubmitHandler,
     executeMutation,
     setFormError,
     handleSubmit,

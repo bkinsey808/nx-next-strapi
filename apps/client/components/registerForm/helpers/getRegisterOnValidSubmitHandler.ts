@@ -1,13 +1,12 @@
-import { LoginMutation } from '../../../graphql';
+import { RegisterMutation } from '../../../graphql';
 import Router from 'next/router';
 import {
   AppFormHandleError,
   GetOnValidMutationSubmitHandler,
 } from '../../appForm';
-import { LoginFieldValues, LoginVariables } from './loginTypes';
-// import { GetLoginOnSubmit, GetOnValidSubmitHandler } from './loginTypes';
+import { RegisterFieldValues, RegisterVariables } from './registerTypes';
 
-const loginHandleError: AppFormHandleError = (err, setFormError) => {
+const registerHandleError: AppFormHandleError = (err, setFormError) => {
   if ('errorSummary' in err) {
     setFormError(err.errorSummary);
   } else {
@@ -15,15 +14,15 @@ const loginHandleError: AppFormHandleError = (err, setFormError) => {
   }
 };
 
-export const getOnValidSubmitHandler: GetOnValidMutationSubmitHandler<
-  LoginFieldValues,
-  LoginVariables,
-  LoginMutation
+export const getRegisterOnValidSubmitHandler: GetOnValidMutationSubmitHandler<
+  RegisterFieldValues,
+  RegisterVariables,
+  RegisterMutation
 > =
   ({ executeMutation, setFormError }) =>
-  async ({ username, password }) => {
+  async (variables) => {
     try {
-      const { data, error } = await executeMutation({ username, password });
+      const { data, error } = await executeMutation(variables);
       if (error) {
         const isInvalid =
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -32,15 +31,15 @@ export const getOnValidSubmitHandler: GetOnValidMutationSubmitHandler<
           'Auth.form.error.invalid';
         const errorMessage = isInvalid
           ? 'Username or Password is invalid'
-          : 'Unknown error signing in';
+          : 'Unknown error registering';
         setFormError(errorMessage);
       } else {
         console.log('success!', { data });
-        window.localStorage.setItem('token', data.login.jwt);
+        window.localStorage.setItem('token', data.register.jwt);
         Router.push('/');
       }
     } catch (err) {
       console.log({ err });
-      loginHandleError(err, setFormError);
+      registerHandleError(err, setFormError);
     }
   };

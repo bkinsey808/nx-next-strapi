@@ -6,7 +6,7 @@ import { gql } from 'urql';
 import * as yup from 'yup';
 
 import { AppFieldConfig, getFormOptions, getYupSchema } from '../appForm';
-import { getOnValidSubmitHandler } from './helpers/getRegisterOnSubmit';
+import { getRegisterOnValidSubmitHandler } from './helpers/getRegisterOnValidSubmitHandler';
 import {
   RegisterFieldValues,
   RegisterVariables,
@@ -85,7 +85,7 @@ export const useRegister = () => {
     RegisterVariables,
     RegisterMutation
   >({
-    getOnValidSubmitHandler,
+    getOnValidSubmitHandler: getRegisterOnValidSubmitHandler,
     executeMutation,
     setFormError,
     handleSubmit,
