@@ -1,10 +1,10 @@
 import { AppForm, AppTextField, AppButton } from '../appForm';
 import { RegisterFieldValues } from './helpers/registerTypes';
-import { useRegister } from './useRegister';
+import { useRegister as useRegisterForm } from './useRegisterForm';
 
 export function RegisterForm() {
-  const { formRef, onSubmit, formError, formOptions } = useRegister();
-  console.log({ formOptions });
+  const { formRef, onSubmit, formError, formOptions } = useRegisterForm();
+
   return (
     <AppForm ref={formRef} onSubmit={onSubmit} formError={formError}>
       <AppTextField<RegisterFieldValues>

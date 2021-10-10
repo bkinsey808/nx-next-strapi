@@ -1,9 +1,9 @@
 import { AppForm, AppTextField, AppButton } from '../appForm';
 import { LoginFieldValues } from './helpers/loginTypes';
-import { useLogin } from './useLogin';
+import { useLoginForm } from './useLoginForm';
 
 export function LoginForm() {
-  const { formRef, onSubmit, formError, formOptions } = useLogin();
+  const { formRef, onSubmit, formError, formOptions } = useLoginForm();
 
   return (
     <AppForm ref={formRef} onSubmit={onSubmit} formError={formError}>

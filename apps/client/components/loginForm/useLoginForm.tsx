@@ -37,7 +37,7 @@ export const loginFieldConfig: AppFieldConfig = {
 };
 
 /** abstract non-display logic for Login component */
-export const useLogin = () =>
+export const useLoginForm = () =>
   useAppForm({
     formId: 'login',
     useMutation: useLoginMutation,
