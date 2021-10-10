@@ -1,8 +1,8 @@
 import {
   DeepMap,
   DeepPartial,
-  UnionLike,
   FormState,
+  UnionLike,
 } from 'react-hook-form/dist/types';
 
 import { getHelperText } from './getHelperText';

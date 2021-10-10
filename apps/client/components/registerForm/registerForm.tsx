@@ -1,4 +1,4 @@
-import { AppForm, AppTextField, AppButton } from '../appForm';
+import { AppButton, AppForm, AppTextField } from '../appForm';
 import { RegisterFieldValues } from './helpers/registerTypes';
 import { useRegister as useRegisterForm } from './useRegisterForm';
 

@@ -1,5 +1,5 @@
-import { MutableRefObject } from 'react';
 import { FieldError } from 'react-hook-form';
+import { MutableRefObject } from 'react';
 
 export const getErrorHandler =
   (formRef: MutableRefObject<HTMLFormElement | null>) =>

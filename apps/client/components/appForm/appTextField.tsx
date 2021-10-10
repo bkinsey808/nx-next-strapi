@@ -1,17 +1,16 @@
-import { memo } from 'react';
-import { Controller } from 'react-hook-form';
 import {
   Control,
   Path,
   PathValue,
   UnpackNestedValue,
 } from 'react-hook-form/dist/types';
-
 import { AppFormOptions } from './helpers/appFormTypes';
+import { Controller } from 'react-hook-form';
 import { getHasError } from './helpers/getHasError';
 import { getHelperText } from './helpers/getHelperText';
 import { getInputOnBlur } from './helpers/getInputOnBlur';
 import { getInputOnChange } from './helpers/getInputOnChange';
+import { memo } from 'react';
 
 interface AppTextFieldProps<FormFieldTypes> {
   name: Path<FormFieldTypes>;

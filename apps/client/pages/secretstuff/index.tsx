@@ -1,8 +1,8 @@
 import Link from 'next/link';
+import { getSsrUrqlClient } from '../../helpers/getUrqlClient';
 import { gql } from 'urql';
 import { usePostsQuery } from '../../graphql';
 import { withAuthUrqlClient } from '../../helpers/withAppUrqlClient';
-import { getSsrUrqlClient } from '../../helpers/getUrqlClient';
 
 const POSTS_QUERY = gql`
   query Posts {

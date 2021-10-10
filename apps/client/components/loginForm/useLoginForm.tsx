@@ -1,10 +1,9 @@
-import { useLoginMutation } from '../../graphql';
-import { gql } from 'urql';
 import * as yup from 'yup';
-
 import { AppFieldConfig } from '../appForm';
 import { getLoginOnValidSubmitHandler } from './helpers/getLoginOnValidSubmitHandler';
+import { gql } from 'urql';
 import { useAppForm } from '../appForm/useAppForm';
+import { useLoginMutation } from '../../graphql';
 
 gql`
   mutation Login($username: String!, $password: String!) {

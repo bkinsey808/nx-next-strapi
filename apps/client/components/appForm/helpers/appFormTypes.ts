@@ -1,4 +1,4 @@
-import { Dispatch, MutableRefObject, SetStateAction } from 'react';
+import * as yup from 'yup';
 import {
   Control,
   FormState,
@@ -6,8 +6,8 @@ import {
   UseFormHandleSubmit,
   UseFormTrigger,
 } from 'react-hook-form/dist/types';
+import { Dispatch, MutableRefObject, SetStateAction } from 'react';
 import { OperationContext, OperationResult } from 'urql';
-import * as yup from 'yup';
 import { RequiredStringSchema } from 'yup/lib/string';
 
 export interface AppFieldConfig {

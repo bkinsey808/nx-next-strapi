@@ -1,10 +1,10 @@
-import { RegisterMutation } from '../../../graphql';
-import Router from 'next/router';
 import {
   AppFormHandleError,
   GetOnValidMutationSubmitHandler,
 } from '../../appForm';
 import { RegisterFieldValues, RegisterVariables } from './registerTypes';
+import { RegisterMutation } from '../../../graphql';
+import Router from 'next/router';
 
 const registerHandleError: AppFormHandleError = (err, setFormError) => {
   if ('errorSummary' in err) {

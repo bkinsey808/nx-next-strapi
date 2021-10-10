@@ -1,5 +1,5 @@
-import { Control, FormState, UseFormTrigger } from 'react-hook-form';
 import { AppFieldConfig, AppFormOptions } from './appFormTypes';
+import { Control, FormState, UseFormTrigger } from 'react-hook-form';
 
 /** add the control to the fieldConfig for consumption by field components */
 export const getFormOptions = <FieldValues>({

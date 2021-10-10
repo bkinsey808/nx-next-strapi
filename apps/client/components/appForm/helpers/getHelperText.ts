@@ -1,9 +1,9 @@
 import {
   DeepMap,
   DeepPartial,
-  UnionLike,
   FieldError,
   FormState,
+  UnionLike,
 } from 'react-hook-form/dist/types';
 
 export const getHelperText = <FormFieldTypes>(

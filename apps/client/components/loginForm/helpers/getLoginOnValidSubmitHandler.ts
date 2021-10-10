@@ -1,10 +1,10 @@
-import { LoginMutation } from '../../../graphql';
-import Router from 'next/router';
 import {
   AppFormHandleError,
   GetOnValidMutationSubmitHandler,
 } from '../../appForm';
 import { LoginFieldValues, LoginVariables } from './loginTypes';
+import { LoginMutation } from '../../../graphql';
+import Router from 'next/router';
 // import { GetLoginOnSubmit, GetOnValidSubmitHandler } from './loginTypes';
 
 const loginHandleError: AppFormHandleError = (err, setFormError) => {

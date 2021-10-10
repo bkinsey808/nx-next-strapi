@@ -1,12 +1,12 @@
 import {
-  ssrExchange,
-  dedupExchange,
   cacheExchange,
+  dedupExchange,
   fetchExchange,
+  ssrExchange,
 } from '@urql/core';
-import { devtoolsExchange } from '@urql/devtools';
-import { authExchange } from '@urql/exchange-auth';
 import { SSRExchange } from 'next-urql';
+import { authExchange } from '@urql/exchange-auth';
+import { devtoolsExchange } from '@urql/devtools';
 import { makeOperation } from 'urql';
 
 const getAuth = async ({ authState }) => {

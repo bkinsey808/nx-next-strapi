@@ -1,5 +1,5 @@
-import { withUrqlClient } from 'next-urql';
 import { getUrqlClientOptions } from './getUrqlClientOptions';
+import { withUrqlClient } from 'next-urql';
 
 export const withAuthUrqlClient = withUrqlClient(getUrqlClientOptions(true), {
   ssr: false,

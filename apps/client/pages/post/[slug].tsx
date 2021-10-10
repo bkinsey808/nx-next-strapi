@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import { gql } from 'urql';
-import { getSsrUrqlClient } from '../../helpers/getUrqlClient';
-import { withNoAuthUrqlClient } from '../../helpers/withAppUrqlClient';
 import { PostSlugsQuery, usePostQuery } from '../../graphql';
+import Link from 'next/link';
+import { getSsrUrqlClient } from '../../helpers/getUrqlClient';
+import { gql } from 'urql';
+import { withNoAuthUrqlClient } from '../../helpers/withAppUrqlClient';
 
 const POST_QUERY = gql`
   query Post($slug: String!) {

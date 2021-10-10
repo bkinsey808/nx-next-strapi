@@ -1,5 +1,5 @@
-import { ChangeEvent } from 'react';
 import { Path, UseFormTrigger } from 'react-hook-form/dist/types';
+import { ChangeEvent } from 'react';
 
 export const getInputOnBlur =
   <FormFieldTypes>({

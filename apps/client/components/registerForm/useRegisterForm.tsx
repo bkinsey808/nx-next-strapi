@@ -1,10 +1,9 @@
-import { useRegisterMutation } from '../../graphql';
-import { gql } from 'urql';
 import * as yup from 'yup';
-
 import { AppFieldConfig } from '../appForm';
 import { getRegisterOnValidSubmitHandler } from './helpers/getRegisterOnValidSubmitHandler';
+import { gql } from 'urql';
 import { useAppForm } from '../appForm/useAppForm';
+import { useRegisterMutation } from '../../graphql';
 
 gql`
   mutation Register($username: String!, $email: String!, $password: String!) {

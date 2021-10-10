@@ -1,6 +1,6 @@
-import Lazy from 'yup/lib/Lazy';
 import * as yup from 'yup';
 import { AppFieldConfig } from './appFormTypes';
+import Lazy from 'yup/lib/Lazy';
 
 /** typed version of Object.keys */
 // eslint-disable-next-line @typescript-eslint/ban-types
