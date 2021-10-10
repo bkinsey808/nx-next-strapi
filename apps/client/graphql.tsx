@@ -1166,6 +1166,14 @@ export type UpdateUserPayload = {
   user?: Maybe<UsersPermissionsUser>;
 };
 
+export type CreateCommentMutationVariables = Exact<{
+  comment: Scalars['String'];
+  postId: Scalars['ID'];
+}>;
+
+
+export type CreateCommentMutation = { __typename: 'Mutation', createComment?: { __typename: 'createCommentPayload', comment?: { __typename: 'Comment', Comment?: string | null | undefined } | null | undefined } | null | undefined };
+
 export type LoginMutationVariables = Exact<{
   username: Scalars['String'];
   password: Scalars['String'];
@@ -1201,6 +1209,19 @@ export type PostSlugsQueryVariables = Exact<{ [key: string]: never; }>;
 export type PostSlugsQuery = { __typename: 'Query', posts?: Array<{ __typename: 'Post', Slug?: string | null | undefined } | null | undefined> | null | undefined };
 
 
+export const CreateCommentDocument = gql`
+    mutation CreateComment($comment: String!, $postId: ID!) {
+  createComment(input: {data: {Comment: $comment, Post: $postId}}) {
+    comment {
+      Comment
+    }
+  }
+}
+    `;
+
+export function useCreateCommentMutation() {
+  return Urql.useMutation<CreateCommentMutation, CreateCommentMutationVariables>(CreateCommentDocument);
+};
 export const LoginDocument = gql`
     mutation Login($username: String!, $password: String!) {
   login(input: {identifier: $username, password: $password}) {

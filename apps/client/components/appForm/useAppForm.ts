@@ -25,7 +25,6 @@ export const useAppForm = <FormFieldValues, FormVariables, MutationType>({
   >;
 }) => {
   const [_state, executeMutation] = useMutation();
-
   const formRef = useRef<HTMLFormElement | null>(null);
   const [formError, setFormError] = useState<string | undefined>();
   const resolver = getResolver(fieldConfig);

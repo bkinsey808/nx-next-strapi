@@ -60,7 +60,7 @@ export const registerFieldConfig: AppFieldConfig = {
 };
 
 /** abstract non-display logic for Register component */
-export const useRegister = () =>
+export const useRegisterForm = () =>
   useAppForm({
     formId: 'register',
     useMutation: useRegisterMutation,
