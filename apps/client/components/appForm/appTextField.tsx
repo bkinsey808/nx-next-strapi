@@ -6,6 +6,7 @@ import {
 } from 'react-hook-form/dist/types';
 import { AppFormOptions } from './helpers/appFormTypes';
 import { Controller } from 'react-hook-form';
+import { ErrorText } from './errorText';
 import { getHasError } from './helpers/getHasError';
 import { getHelperText } from './helpers/getHelperText';
 import { getInputOnBlur } from './helpers/getInputOnBlur';
@@ -103,15 +104,7 @@ export const UnmemoizedAppTextField = <FormFieldTypes,>({
           />
         )}
       />
-      <div
-        className="
-        text-red-500 
-        text-xs 
-        italic
-      "
-      >
-        {hasError && getHelperText(name, formState)}
-      </div>
+      <ErrorText>{hasError && getHelperText(name, formState)}</ErrorText>
     </div>
   );
 };

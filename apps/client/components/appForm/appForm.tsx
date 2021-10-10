@@ -1,4 +1,5 @@
 import { ReactNode, forwardRef } from 'react';
+import { ErrorText } from './errorText';  
 
 interface AppFormProps {
   onSubmit: () => void;
@@ -6,16 +7,14 @@ interface AppFormProps {
   children: ReactNode;
 }
 
-export const AppForm = forwardRef<
-  HTMLFormElement,
-  AppFormProps
-  // eslint-disable-next-line react/prop-types
->(({ onSubmit, formError, children }, formRef) => {
-  return (
-    <form ref={formRef} onSubmit={onSubmit} noValidate>
-      {formError && <div>{formError}</div>}
-      {children}
-    </form>
-  );
-});
+export const AppForm = forwardRef<HTMLFormElement, AppFormProps>(
+  ({ onSubmit, formError, children }, formRef) => {
+    return (
+      <form ref={formRef} onSubmit={onSubmit} noValidate>
+        {formError && <ErrorText>{formError}</ErrorText>}
+        {children}
+      </form>
+    );
+  }
+);
 AppForm.displayName = 'AppForm';
