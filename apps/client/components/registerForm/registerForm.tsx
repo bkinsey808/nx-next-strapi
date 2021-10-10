@@ -23,7 +23,12 @@ export function RegisterForm() {
         name="confirmPassword"
         formOptions={formOptions}
       />
-      <button type="submit">Submit</button>
+      <button
+        className="block bg-teal hover:bg-teal-dark text-white uppercase text-lg mx-auto p-4 rounded"
+        type="submit"
+      >
+        Submit
+      </button>
     </AppForm>
   );
 }

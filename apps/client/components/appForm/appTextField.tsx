@@ -48,8 +48,24 @@ export const UnmemoizedAppTextField = <FormFieldTypes,>({
   const inputId = `${formOptions.formId}-${name}-input`;
 
   return (
-    <>
-      <label id={labelId} htmlFor={inputId}>
+    <div
+      className="
+        py-3
+        mb-3
+    "
+    >
+      <label
+        id={labelId}
+        className="
+          block 
+          uppercase 
+          tracking-wide 
+          text-gray-700 
+          text-xs 
+          font-bold mb-2
+        "
+        htmlFor={inputId}
+      >
         {label}
       </label>
       <Controller
@@ -63,6 +79,21 @@ export const UnmemoizedAppTextField = <FormFieldTypes,>({
         render={({ field: { onChange, onBlur, value } }) => (
           <input
             id={inputId}
+            className={`
+              appearance-none 
+              block 
+              w-full 
+              bg-gray-100 
+              text-gray-700 
+              border
+              border-gray-700
+              rounded 
+              py-1
+              px-4 
+              leading-tight 
+              focus:outline-none 
+              focus:bg-white 
+              ${hasError && 'border-red-500'}`}
             required={required}
             value={value}
             onChange={getInputOnChange({ onChange, hasError, trigger, name })}
@@ -73,8 +104,16 @@ export const UnmemoizedAppTextField = <FormFieldTypes,>({
           />
         )}
       />
-      <div>{hasError && getHelperText(name, formState)}</div>
-    </>
+      <div
+        className="
+        text-red-500 
+        text-xs 
+        italic
+      "
+      >
+        {hasError && getHelperText(name, formState)}
+      </div>
+    </div>
   );
 };
 

@@ -9,6 +9,9 @@
     "github.copilot",
     "eamodio.gitlens",
     "graphql.vscode-graphql",
-    "wix.vscode-import-cost"
+    "wix.vscode-import-cost",
+    "csstools.postcss",
+    "austenc.tailwind-docs",
+    "bradlc.vscode-tailwindcss"
   ]
 }

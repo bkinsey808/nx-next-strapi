@@ -1,3 +1,5 @@
+import '../styles/global.css';
+
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 
@@ -9,7 +11,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
       </Head>
       <div className="app">
         <header className="flex">
-          <h1>This is my header</h1>
+          <h1 className="text-xl text-gray-800">This is my header</h1>
         </header>
         <main>
           <Component {...pageProps} />
