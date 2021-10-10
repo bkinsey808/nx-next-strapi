@@ -1,17 +1,17 @@
-import { yupResolver } from '@hookform/resolvers/yup';
 import { RegisterMutation, useRegisterMutation } from '../../graphql';
 import { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { gql } from 'urql';
 import * as yup from 'yup';
 
-import { AppFieldConfig, getFormOptions, getYupSchema } from '../appForm';
+import { AppFieldConfig, getFormOptions } from '../appForm';
 import { getRegisterOnValidSubmitHandler } from './helpers/getRegisterOnValidSubmitHandler';
 import {
   RegisterFieldValues,
   RegisterVariables,
 } from './helpers/registerTypes';
 import { getMutationOnSubmit } from '../appForm/helpers/getMutationOnSubmit';
+import { getResolver } from '../appForm/helpers/getResolver';
 
 gql`
   mutation Register($username: String!, $email: String!, $password: String!) {
@@ -73,7 +73,7 @@ export const useRegister = () => {
 
   const formRef = useRef<HTMLFormElement | null>(null);
   const [formError, setFormError] = useState<string | undefined>();
-  const resolver = yupResolver(getYupSchema(registerFieldConfig));
+  const resolver = getResolver(registerFieldConfig);
 
   const { control, handleSubmit, formState, trigger } =
     useForm<RegisterFieldValues>({

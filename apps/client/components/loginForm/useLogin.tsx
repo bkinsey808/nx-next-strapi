@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { gql } from 'urql';
 import * as yup from 'yup';
 
-import { AppFieldConfig, getFormOptions, getYupSchema } from '../appForm';
+import { AppFieldConfig, getFormOptions, getResolver } from '../appForm';
 import { getLoginOnValidSubmitHandler } from './helpers/getLoginOnValidSubmitHandler';
 import { LoginFieldValues, LoginVariables } from './helpers/loginTypes';
 import { getMutationOnSubmit } from '../appForm/helpers/getMutationOnSubmit';
@@ -46,7 +46,7 @@ export const useLogin = () => {
 
   const formRef = useRef<HTMLFormElement | null>(null);
   const [formError, setFormError] = useState<string | undefined>();
-  const resolver = yupResolver(getYupSchema(loginFieldConfig));
+  const resolver = getResolver(loginFieldConfig);
 
   const { control, handleSubmit, formState, trigger } =
     useForm<LoginFieldValues>({
