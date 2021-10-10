@@ -30,6 +30,7 @@ const getAuth = async ({ authState }) => {
 };
 
 const addAuthToOperation = ({ authState, operation }) => {
+  console.log({ authState });
   if (!authState || !authState.token) {
     return operation;
   }

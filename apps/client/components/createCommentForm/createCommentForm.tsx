@@ -1,8 +1,9 @@
 import { AppButton, AppForm, AppTextField } from '../appForm';
 import { CreateCommentFieldValues } from './helpers/createCommentTypes';
 import { useCreateCommentForm } from './useCreateCommentForm';
+import { withAuthUrqlClient } from '../../helpers/withAppUrqlClient';
 
-export function CreateCommentForm() {
+function CreateCommentForm() {
   const { formRef, onSubmit, formError, formOptions } = useCreateCommentForm();
 
   return (
@@ -16,4 +17,4 @@ export function CreateCommentForm() {
   );
 }
 
-export default CreateCommentForm;
+export default withAuthUrqlClient(CreateCommentForm);

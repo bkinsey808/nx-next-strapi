@@ -9,20 +9,28 @@ import { getMutationOnSubmit } from './helpers/getMutationOnSubmit';
 import { getResolver } from './helpers/getResolver';
 import { useForm } from 'react-hook-form';
 
-export const useAppForm = <FormFieldValues, FormVariables, MutationType>({
+export const useAppForm = <
+  FormFieldValues,
+  MutationVariables,
+  MutationType,
+  ExtraVariables
+>({
   formId,
   useMutation,
   fieldConfig,
   getOnValidSubmitHandler,
+  extraVariables,
 }: {
   formId: string;
-  useMutation: () => UseMutationResponse<MutationType, FormVariables>;
+  useMutation: () => UseMutationResponse<MutationType, MutationVariables>;
   fieldConfig: AppFieldConfig;
   getOnValidSubmitHandler: GetOnValidMutationSubmitHandler<
     FormFieldValues,
-    FormVariables,
-    MutationType
+    MutationVariables,
+    MutationType,
+    ExtraVariables
   >;
+  extraVariables?: ExtraVariables;
 }) => {
   const [_state, executeMutation] = useMutation();
   const formRef = useRef<HTMLFormElement | null>(null);
@@ -41,8 +49,9 @@ export const useAppForm = <FormFieldValues, FormVariables, MutationType>({
 
   const onSubmit = getMutationOnSubmit<
     FormFieldValues,
-    FormVariables,
-    MutationType
+    MutationVariables,
+    MutationType,
+    ExtraVariables
   >({
     getOnValidSubmitHandler,
     executeMutation,
@@ -50,6 +59,7 @@ export const useAppForm = <FormFieldValues, FormVariables, MutationType>({
     setFieldError,
     handleSubmit,
     formRef,
+    extraVariables,
   });
 
   const formOptions = getFormOptions<FormFieldValues>({

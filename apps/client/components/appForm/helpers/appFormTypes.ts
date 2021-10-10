@@ -42,7 +42,8 @@ export type AppFormHandleError = (
 export interface GetOnSubmitOptions<
   FormFieldValues,
   MutationVariables,
-  MutationType
+  MutationType,
+  ExtraVariables
 > {
   executeMutation: (
     variables?: MutationVariables,
@@ -52,23 +53,36 @@ export interface GetOnSubmitOptions<
   setFieldError: UseFormSetError<FormFieldValues>;
   handleSubmit: UseFormHandleSubmit<FormFieldValues>;
   formRef: MutableRefObject<HTMLFormElement | null>;
+  extraVariables: ExtraVariables;
 }
 
 export type GetMutationOnSubmit<
   FormFieldValues,
   MutationVariables,
-  MutationType
+  MutationType,
+  ExtraVariables
 > = (
-  options: GetOnSubmitOptions<FormFieldValues, MutationVariables, MutationType>
+  options: GetOnSubmitOptions<
+    FormFieldValues,
+    MutationVariables,
+    MutationType,
+    ExtraVariables
+  >
 ) => () => void;
 
 export type GetOnValidMutationSubmitHandler<
   FormFieldValues,
   MutationVariables,
-  MutationType
+  MutationType,
+  ExtraVariables
 > = (
   options: Omit<
-    GetOnSubmitOptions<FormFieldValues, MutationVariables, MutationType>,
+    GetOnSubmitOptions<
+      FormFieldValues,
+      MutationVariables,
+      MutationType,
+      ExtraVariables
+    >,
     'handleSubmit'
   >
 ) => (confirmFieldValues: UnpackNestedValue<FormFieldValues>) => Promise<void>;

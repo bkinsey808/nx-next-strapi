@@ -5,6 +5,16 @@ import { gql } from 'urql';
 import { useAppForm } from '../appForm/useAppForm';
 import { useLoginMutation } from '../../graphql';
 
+const CREATE_COMMENT_GQL = gql`
+  mutation CreateComment($comment: String!, $postId: ID!) {
+    createComment(input: { data: { Comment: $comment, Post: $postId } }) {
+      comment {
+        Comment
+      }
+    }
+  }
+`;
+
 gql`
   mutation Login($username: String!, $password: String!) {
     login(input: { identifier: $username, password: $password }) {

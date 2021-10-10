@@ -11,10 +11,10 @@ module.exports = {
     let entity;
     if (ctx.is('multipart')) {
       const { data, files } = parseMultipartData(ctx);
-      data.Author = ctx.state.User.id;
+      data.Author = ctx.state.user.id;
       entity = await strapi.services.comment.create(data, { files });
     } else {
-      ctx.request.body.Author = ctx.state.User.id;
+      ctx.request.body.Author = ctx.state.user.id;
       entity = await strapi.services.comment.create(ctx.request.body);
     }
     return sanitizeEntity(entity, { model: strapi.models.comment });
@@ -33,7 +33,7 @@ module.exports = {
 
     const [comment] = await strapi.services.comment.find({
       id: ctx.params.id,
-      'Author.id': ctx.state.User.id,
+      'Author.id': ctx.state.user.id,
     });
 
     if (!comment) {

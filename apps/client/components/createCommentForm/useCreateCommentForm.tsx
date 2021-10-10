@@ -1,22 +1,12 @@
 import * as yup from 'yup';
 import { AppFieldConfig } from '../appForm';
+import { CreateCommentExtraVariables } from './helpers/createCommentTypes';
 import { getCreateCommentOnValidSubmitHandler } from './helpers/getCreateCommentOnValidSubmitHandler';
-import { gql } from 'urql';
 import { useAppForm } from '../appForm/useAppForm';
 import { useCreateCommentMutation } from '../../graphql';
 
-gql`
-  mutation CreateComment($comment: String!, $postId: ID!) {
-    createComment(input: { data: { Comment: $comment, Post: $postId } }) {
-      comment {
-        Comment
-      }
-    }
-  }
-`;
-
 export const createCommentFieldConfig: AppFieldConfig = {
-  username: {
+  comment: {
     label: 'Create Comment',
     required: true,
     type: 'text',
@@ -25,10 +15,13 @@ export const createCommentFieldConfig: AppFieldConfig = {
 };
 
 /** abstract non-display logic for CreateCommentForm component */
-export const useCreateCommentForm = () =>
+export const useCreateCommentForm = (
+  extraVariables: CreateCommentExtraVariables
+) =>
   useAppForm({
     formId: 'createComment',
     useMutation: useCreateCommentMutation,
     fieldConfig: createCommentFieldConfig,
     getOnValidSubmitHandler: getCreateCommentOnValidSubmitHandler,
+    extraVariables,
   });

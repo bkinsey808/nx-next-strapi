@@ -11,7 +11,8 @@ import { getErrorHandler } from './getErrorHandler';
 export const getMutationOnSubmit = <
   FormFieldValues,
   MutationVariables,
-  MutationType
+  MutationType,
+  ExtraVariables
 >({
   getOnValidSubmitHandler,
   executeMutation,
@@ -19,11 +20,13 @@ export const getMutationOnSubmit = <
   setFieldError,
   handleSubmit,
   formRef,
+  extraVariables,
 }: {
   getOnValidSubmitHandler: GetOnValidMutationSubmitHandler<
     FormFieldValues,
     MutationVariables,
-    MutationType
+    MutationType,
+    ExtraVariables
   >;
   executeMutation: (
     variables?: MutationVariables,
@@ -33,9 +36,16 @@ export const getMutationOnSubmit = <
   setFieldError: UseFormSetError<FormFieldValues>;
   handleSubmit: UseFormHandleSubmit<FormFieldValues>;
   formRef;
+  extraVariables?: ExtraVariables;
 }): (() => void) =>
   handleSubmit(
     // this means the form itself is valid (on the client side)
-    getOnValidSubmitHandler({ executeMutation, setFormError, setFieldError, formRef }),
+    getOnValidSubmitHandler({
+      executeMutation,
+      setFormError,
+      setFieldError,
+      formRef,
+      extraVariables,
+    }),
     getErrorHandler(formRef)
   );
