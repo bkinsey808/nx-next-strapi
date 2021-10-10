@@ -19,4 +19,4 @@ function CreateCommentForm() {
   );
 }
 
-export default withAuthUrqlClient(CreateCommentForm);
+export default CreateCommentForm;

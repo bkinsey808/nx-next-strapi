@@ -1,9 +1,9 @@
-import { PostSlugsQuery, usePostQuery } from '../../graphql';
-import CreateCommentForm from '../../components/createCommentForm/createCommentForm';
+import { PostSlugsQuery, usePostQuery } from '../../../graphql';
+import CreateCommentForm from '../../../components/createCommentForm/createCommentForm';
 import Link from 'next/link';
-import { getSsrUrqlClient } from '../../helpers/getUrqlClient';
+import { getSsrUrqlClient } from '../../../helpers/getUrqlClient';
 import { gql } from 'urql';
-import { withNoAuthUrqlClient } from '../../helpers/withAppUrqlClient';
+import { withAuthUrqlClient } from '../../../helpers/withAppUrqlClient';
 
 const POST_QUERY = gql`
   query Post($slug: String!) {
@@ -40,6 +40,7 @@ function Post({ slug }) {
       <div>
         <h1>{post.Title}</h1>
         <p>{post.Content}</p>
+        <CreateCommentForm />
       </div>
     </>
   );
@@ -77,4 +78,4 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default withNoAuthUrqlClient(Post);
+export default withAuthUrqlClient(Post);
