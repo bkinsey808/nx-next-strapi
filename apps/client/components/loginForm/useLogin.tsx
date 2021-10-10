@@ -1,14 +1,10 @@
-import { yupResolver } from '@hookform/resolvers/yup';
-import { LoginMutation, useLoginMutation } from '../../graphql';
-import { useState, useRef } from 'react';
-import { useForm } from 'react-hook-form';
+import { useLoginMutation } from '../../graphql';
 import { gql } from 'urql';
 import * as yup from 'yup';
 
-import { AppFieldConfig, getFormOptions, getResolver } from '../appForm';
+import { AppFieldConfig } from '../appForm';
 import { getLoginOnValidSubmitHandler } from './helpers/getLoginOnValidSubmitHandler';
-import { LoginFieldValues, LoginVariables } from './helpers/loginTypes';
-import { getMutationOnSubmit } from '../appForm/helpers/getMutationOnSubmit';
+import { useAppForm } from '../appForm/useAppForm';
 
 gql`
   mutation Login($username: String!, $password: String!) {
@@ -41,37 +37,10 @@ export const loginFieldConfig: AppFieldConfig = {
 };
 
 /** abstract non-display logic for Login component */
-export const useLogin = () => {
-  const [state, executeMutation] = useLoginMutation();
-
-  const formRef = useRef<HTMLFormElement | null>(null);
-  const [formError, setFormError] = useState<string | undefined>();
-  const resolver = getResolver(loginFieldConfig);
-
-  const { control, handleSubmit, formState, trigger } =
-    useForm<LoginFieldValues>({
-      resolver,
-    });
-
-  const onSubmit = getMutationOnSubmit<
-    LoginFieldValues,
-    LoginVariables,
-    LoginMutation
-  >({
-    getOnValidSubmitHandler: getLoginOnValidSubmitHandler,
-    executeMutation,
-    setFormError,
-    handleSubmit,
-    formRef,
-  });
-
-  const formOptions = getFormOptions<LoginFieldValues>({
+export const useLogin = () =>
+  useAppForm({
     formId: 'login',
+    useMutation: useLoginMutation,
     fieldConfig: loginFieldConfig,
-    control,
-    formState,
-    trigger,
+    getOnValidSubmitHandler: getLoginOnValidSubmitHandler,
   });
-
-  return { formRef, onSubmit, formError, control, formOptions };
-};

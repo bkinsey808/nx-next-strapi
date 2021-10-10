@@ -1,17 +1,10 @@
-import { RegisterMutation, useRegisterMutation } from '../../graphql';
-import { useState, useRef } from 'react';
-import { useForm } from 'react-hook-form';
+import { useRegisterMutation } from '../../graphql';
 import { gql } from 'urql';
 import * as yup from 'yup';
 
-import { AppFieldConfig, getFormOptions } from '../appForm';
+import { AppFieldConfig } from '../appForm';
 import { getRegisterOnValidSubmitHandler } from './helpers/getRegisterOnValidSubmitHandler';
-import {
-  RegisterFieldValues,
-  RegisterVariables,
-} from './helpers/registerTypes';
-import { getMutationOnSubmit } from '../appForm/helpers/getMutationOnSubmit';
-import { getResolver } from '../appForm/helpers/getResolver';
+import { useAppForm } from '../appForm/useAppForm';
 
 gql`
   mutation Register($username: String!, $email: String!, $password: String!) {
@@ -68,37 +61,10 @@ export const registerFieldConfig: AppFieldConfig = {
 };
 
 /** abstract non-display logic for Register component */
-export const useRegister = () => {
-  const [state, executeMutation] = useRegisterMutation();
-
-  const formRef = useRef<HTMLFormElement | null>(null);
-  const [formError, setFormError] = useState<string | undefined>();
-  const resolver = getResolver(registerFieldConfig);
-
-  const { control, handleSubmit, formState, trigger } =
-    useForm<RegisterFieldValues>({
-      resolver,
-    });
-
-  const onSubmit = getMutationOnSubmit<
-    RegisterFieldValues,
-    RegisterVariables,
-    RegisterMutation
-  >({
-    getOnValidSubmitHandler: getRegisterOnValidSubmitHandler,
-    executeMutation,
-    setFormError,
-    handleSubmit,
-    formRef,
-  });
-
-  const formOptions = getFormOptions<RegisterFieldValues>({
+export const useRegister = () =>
+  useAppForm({
     formId: 'register',
+    useMutation: useRegisterMutation,
     fieldConfig: registerFieldConfig,
-    control,
-    formState,
-    trigger,
+    getOnValidSubmitHandler: getRegisterOnValidSubmitHandler,
   });
-
-  return { formRef, onSubmit, formError, control, formOptions };
-};
