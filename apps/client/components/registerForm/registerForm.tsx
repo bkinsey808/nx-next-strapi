@@ -1,4 +1,4 @@
-import { AppForm, AppTextField } from '../appForm';
+import { AppForm, AppTextField, AppButton } from '../appForm';
 import { RegisterFieldValues } from './helpers/registerTypes';
 import { useRegister } from './useRegister';
 
@@ -23,12 +23,7 @@ export function RegisterForm() {
         name="confirmPassword"
         formOptions={formOptions}
       />
-      <button
-        className="block bg-teal hover:bg-teal-dark text-white uppercase text-lg mx-auto p-4 rounded"
-        type="submit"
-      >
-        Submit
-      </button>
+      <AppButton type="submit">Register</AppButton>
     </AppForm>
   );
 }

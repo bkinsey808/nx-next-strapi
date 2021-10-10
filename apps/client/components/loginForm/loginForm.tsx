@@ -1,4 +1,4 @@
-import { AppForm, AppTextField } from '../appForm';
+import { AppForm, AppTextField, AppButton } from '../appForm';
 import { LoginFieldValues } from './helpers/loginTypes';
 import { useLogin } from './useLogin';
 
@@ -15,12 +15,7 @@ export function LoginForm() {
         name="password"
         formOptions={formOptions}
       />
-      <button
-        className="block bg-teal hover:bg-teal-dark text-white uppercase text-lg mx-auto p-4 rounded"
-        type="submit"
-      >
-        Submit
-      </button>
+      <AppButton type="submit">Login</AppButton>
     </AppForm>
   );
 }
