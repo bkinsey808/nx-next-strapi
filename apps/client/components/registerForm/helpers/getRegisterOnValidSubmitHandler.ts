@@ -5,6 +5,7 @@ import {
 import { RegisterFieldValues, RegisterVariables } from './registerTypes';
 import { RegisterMutation } from '../../../graphql';
 import Router from 'next/router';
+import { getErrorHandler } from '../../appForm/helpers/getErrorHandler';
 
 const registerHandleError: AppFormHandleError = (err, setFormError) => {
   if ('errorSummary' in err) {
@@ -19,22 +20,38 @@ export const getRegisterOnValidSubmitHandler: GetOnValidMutationSubmitHandler<
   RegisterVariables,
   RegisterMutation
 > =
-  ({ executeMutation, setFormError }) =>
-  async (variables) => {
+  ({ executeMutation, setFormError, setFieldError, formRef }) =>
+  async (formFieldValues) => {
     try {
-      const { data, error } = await executeMutation(variables);
+      const { username, email, password } = formFieldValues;
+      const { data, error } = await executeMutation({
+        username,
+        email,
+        password,
+      });
       if (error) {
-        const isInvalid =
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (error?.graphQLErrors?.[0]?.originalError as any)?.extensions
-            ?.exception?.data?.message?.[0]?.messages?.[0]?.id ===
-          'Auth.form.error.invalid';
-        const errorMessage = isInvalid
-          ? 'Username or Password is invalid'
-          : 'Unknown error registering';
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const messageObj = (error?.graphQLErrors?.[0]?.originalError as any)
+          ?.extensions?.exception?.data?.message?.[0]?.messages?.[0];
+        const errorMessage =
+          messageObj?.message ?? ('Unknown error registering' as string);
+        if (errorMessage === 'Email already taken') {
+          setFieldError('username', {
+            message: 'Username is already taken',
+            type: messageObj?.id,
+          });
+          getErrorHandler(formRef)({ username: errorMessage });
+          return;
+        } else if (errorMessage === 'Email is already taken.') {
+          setFieldError('email', {
+            message: 'Email is already taken',
+            type: messageObj?.id,
+          });
+          getErrorHandler(formRef)({ email: errorMessage });
+          return;
+        }
         setFormError(errorMessage);
       } else {
-        console.log('success!', { data });
         window.localStorage.setItem('token', data.register.jwt);
         Router.push('/');
       }

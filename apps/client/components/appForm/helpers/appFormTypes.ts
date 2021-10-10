@@ -4,6 +4,7 @@ import {
   FormState,
   UnpackNestedValue,
   UseFormHandleSubmit,
+  UseFormSetError,
   UseFormTrigger,
 } from 'react-hook-form/dist/types';
 import { Dispatch, MutableRefObject, SetStateAction } from 'react';
@@ -29,6 +30,7 @@ export type AppFormOptions<FieldValues> = {
   control: Control<FieldValues, object>;
   formState: FormState<FieldValues>;
   trigger: UseFormTrigger<FieldValues>;
+  clearErrors;
 };
 
 export type AppFormHandleError = (
@@ -47,6 +49,7 @@ export interface GetOnSubmitOptions<
     context?: Partial<OperationContext>
   ) => Promise<OperationResult<MutationType, MutationVariables>>;
   setFormError: Dispatch<SetStateAction<string | undefined>>;
+  setFieldError: UseFormSetError<FormFieldValues>;
   handleSubmit: UseFormHandleSubmit<FormFieldValues>;
   formRef: MutableRefObject<HTMLFormElement | null>;
 }
@@ -66,8 +69,6 @@ export type GetOnValidMutationSubmitHandler<
 > = (
   options: Omit<
     GetOnSubmitOptions<FormFieldValues, MutationVariables, MutationType>,
-    'handleSubmit' | 'formRef'
+    'handleSubmit'
   >
-) => (
-  confirmFieldValues: UnpackNestedValue<MutationVariables>
-) => Promise<void>;
+) => (confirmFieldValues: UnpackNestedValue<FormFieldValues>) => Promise<void>;

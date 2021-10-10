@@ -40,9 +40,11 @@ export const UnmemoizedAppTextField = <FormFieldTypes,>({
 }: AppTextFieldProps<FormFieldTypes>): JSX.Element | null => {
   const formState = formOptions?.formState;
   const trigger = formOptions?.trigger;
+
   if (!formState || !trigger) {
     return null;
   }
+
   const hasError = getHasError(name, formState);
   const labelId = `${formOptions.formId}-${name}-label`;
   const inputId = `${formOptions.formId}-${name}-input`;
@@ -52,7 +54,7 @@ export const UnmemoizedAppTextField = <FormFieldTypes,>({
       className="
         py-3
         mb-3
-    "
+      "
     >
       <label
         id={labelId}
@@ -93,7 +95,8 @@ export const UnmemoizedAppTextField = <FormFieldTypes,>({
               leading-tight 
               focus:outline-none 
               focus:bg-white 
-              ${hasError && 'border-red-500'}`}
+              ${hasError && 'border-red-500'}
+            `}
             required={required}
             value={value}
             onChange={getInputOnChange({ onChange, hasError, trigger, name })}

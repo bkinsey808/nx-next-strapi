@@ -1,7 +1,10 @@
 import { Dispatch, SetStateAction } from 'react';
 import { OperationContext, OperationResult } from 'urql';
+import {
+  UseFormHandleSubmit,
+  UseFormSetError,
+} from 'react-hook-form/dist/types';
 import { GetOnValidMutationSubmitHandler } from './appFormTypes';
-import { UseFormHandleSubmit } from 'react-hook-form/dist/types';
 import { getErrorHandler } from './getErrorHandler';
 
 /** handleSubmit from RHF takes an onValid submit handler */
@@ -13,6 +16,7 @@ export const getMutationOnSubmit = <
   getOnValidSubmitHandler,
   executeMutation,
   setFormError,
+  setFieldError,
   handleSubmit,
   formRef,
 }: {
@@ -26,11 +30,12 @@ export const getMutationOnSubmit = <
     context?: Partial<OperationContext>
   ) => Promise<OperationResult<MutationType, MutationVariables>>;
   setFormError: Dispatch<SetStateAction<string>>;
+  setFieldError: UseFormSetError<FormFieldValues>;
   handleSubmit: UseFormHandleSubmit<FormFieldValues>;
   formRef;
 }): (() => void) =>
   handleSubmit(
     // this means the form itself is valid (on the client side)
-    getOnValidSubmitHandler({ executeMutation, setFormError }),
+    getOnValidSubmitHandler({ executeMutation, setFormError, setFieldError, formRef }),
     getErrorHandler(formRef)
   );

@@ -30,10 +30,15 @@ export const useAppForm = <FormFieldValues, FormVariables, MutationType>({
   const [formError, setFormError] = useState<string | undefined>();
   const resolver = getResolver(fieldConfig);
 
-  const { control, handleSubmit, formState, trigger } =
-    useForm<FormFieldValues>({
-      resolver,
-    });
+  const {
+    control,
+    handleSubmit,
+    formState,
+    trigger,
+    setError: setFieldError,
+  } = useForm<FormFieldValues>({
+    resolver,
+  });
 
   const onSubmit = getMutationOnSubmit<
     FormFieldValues,
@@ -43,6 +48,7 @@ export const useAppForm = <FormFieldValues, FormVariables, MutationType>({
     getOnValidSubmitHandler,
     executeMutation,
     setFormError,
+    setFieldError,
     handleSubmit,
     formRef,
   });
