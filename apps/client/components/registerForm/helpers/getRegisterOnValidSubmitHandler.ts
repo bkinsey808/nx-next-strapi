@@ -18,7 +18,8 @@ const registerHandleError: AppFormHandleError = (err, setFormError) => {
 export const getRegisterOnValidSubmitHandler: GetOnValidMutationSubmitHandler<
   RegisterFieldValues,
   RegisterVariables,
-  RegisterMutation
+  RegisterMutation,
+  never
 > =
   ({ executeMutation, setFormError, setFieldError, formRef }) =>
   async (formFieldValues) => {

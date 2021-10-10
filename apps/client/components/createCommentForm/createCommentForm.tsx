@@ -4,7 +4,9 @@ import { useCreateCommentForm } from './useCreateCommentForm';
 import { withAuthUrqlClient } from '../../helpers/withAppUrqlClient';
 
 function CreateCommentForm() {
-  const { formRef, onSubmit, formError, formOptions } = useCreateCommentForm();
+  const { formRef, onSubmit, formError, formOptions } = useCreateCommentForm({
+    postId: '1',
+  });
 
   return (
     <AppForm ref={formRef} onSubmit={onSubmit} formError={formError}>

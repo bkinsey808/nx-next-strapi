@@ -18,7 +18,8 @@ const loginHandleError: AppFormHandleError = (err, setFormError) => {
 export const getLoginOnValidSubmitHandler: GetOnValidMutationSubmitHandler<
   LoginFieldValues,
   LoginVariables,
-  LoginMutation
+  LoginMutation,
+  never
 > =
   ({ executeMutation, setFormError }) =>
   async ({ username, password }) => {

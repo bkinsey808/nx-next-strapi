@@ -47,12 +47,7 @@ export const useAppForm = <
     resolver,
   });
 
-  const onSubmit = getMutationOnSubmit<
-    FormFieldValues,
-    MutationVariables,
-    MutationType,
-    ExtraVariables
-  >({
+  const onSubmit = getMutationOnSubmit({
     getOnValidSubmitHandler,
     executeMutation,
     setFormError,

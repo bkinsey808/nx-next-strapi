@@ -8,6 +8,7 @@ import {
   CreateCommentVariables,
 } from './createCommentTypes';
 import { CreateCommentMutation } from '../../../graphql';
+import { getBrowserUrqlClient } from '../../../helpers/getUrqlClient';
 import { gql } from 'urql';
 
 // filed an issue why ID unknown. see https://github.com/graphql/vscode-graphql/issues/331
@@ -40,12 +41,20 @@ export const getCreateCommentOnValidSubmitHandler: GetOnValidMutationSubmitHandl
   async (formFieldValues) => {
     try {
       const { comment } = formFieldValues;
-      const { data, error } = await executeMutation({
-        comment,
-        ...extraVariables,
-      });
+      const { client } = getBrowserUrqlClient();
+      const res = await client
+        .mutation(CREATE_COMMENT_GQL, {
+          ...formFieldValues,
+          ...extraVariables,
+        })
+        .toPromise();
+      console.log({ res });
+      // const { data, error } = await executeMutation({
+      //   comment,
+      //   ...extraVariables,
+      // });
 
-      console.log({ data, error });
+      // console.log({ data, error });
     } catch (err) {
       console.log({ err });
       createCommentHandleError(err, setFormError);
