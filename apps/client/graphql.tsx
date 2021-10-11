@@ -1195,11 +1195,6 @@ export type PostQueryVariables = Exact<{
 
 export type PostQuery = { __typename: 'Query', posts?: Array<{ __typename: 'Post', id: string, Title?: string | null | undefined, Content?: string | null | undefined, Slug?: string | null | undefined, comments?: Array<{ __typename: 'Comment', id: string, Comment?: string | null | undefined, Author?: { __typename: 'UsersPermissionsUser', id: string, username: string } | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined };
 
-export type PostSlugsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type PostSlugsQuery = { __typename: 'Query', posts?: Array<{ __typename: 'Post', Slug?: string | null | undefined } | null | undefined> | null | undefined };
-
 
 export const LoginDocument = gql`
     mutation Login($username: String!, $password: String!) {
@@ -1272,15 +1267,4 @@ export const PostDocument = gql`
 
 export function usePostQuery(options: Omit<Urql.UseQueryArgs<PostQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<PostQuery>({ query: PostDocument, ...options });
-};
-export const PostSlugsDocument = gql`
-    query PostSlugs {
-  posts {
-    Slug
-  }
-}
-    `;
-
-export function usePostSlugsQuery(options: Omit<Urql.UseQueryArgs<PostSlugsQueryVariables>, 'query'> = {}) {
-  return Urql.useQuery<PostSlugsQuery>({ query: PostSlugsDocument, ...options });
 };

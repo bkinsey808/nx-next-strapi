@@ -1,9 +1,8 @@
-import { PostSlugsQuery, usePostQuery } from '../../graphql';
 import CreateCommentForm from '../../components/createCommentForm/createCommentForm';
 import Link from 'next/link';
 import { getSsrUrqlClient } from '../../helpers/getUrqlClient';
 import { gql } from 'urql';
-import { useEffect } from 'react';
+import { usePostQuery } from '../../graphql';
 import { withNoAuthUrqlClient } from '../../helpers/withAppUrqlClient';
 
 const POST_QUERY = gql`
@@ -21,14 +20,6 @@ const POST_QUERY = gql`
           username
         }
       }
-    }
-  }
-`;
-
-const POST_SLUGS_QUERY = gql`
-  query PostSlugs {
-    posts {
-      Slug
     }
   }
 `;
@@ -59,21 +50,8 @@ function Post({ slug }) {
   );
 }
 
-export async function getStaticPaths() {
-  const { client } = getSsrUrqlClient();
-  const { data } = await client
-    // we pass PostSlugsQuery as a generic type parameter so data gets typed
-    .query<PostSlugsQuery>(POST_SLUGS_QUERY)
-    .toPromise();
-
-  const paths = (data?.posts ?? [])?.map(({ Slug }) => ({
-    params: { slug: Slug },
-  }));
-
-  return { paths, fallback: true };
-}
-
-export async function getStaticProps({ params }) {
+// SSR is necessary instead of SSG because we need to be able to show new comments
+export async function getServerSideProps({ params }) {
   const { slug } = params;
   const { client, ssrCache } = getSsrUrqlClient();
 
@@ -87,7 +65,6 @@ export async function getStaticProps({ params }) {
       // urqlState is a keyword here so withUrqlClient can pick it up.
       urqlState: ssrCache.extractData(),
     },
-    revalidate: 600,
   };
 }
 
