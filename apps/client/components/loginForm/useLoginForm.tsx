@@ -35,7 +35,7 @@ export const loginFieldConfig: AppFieldConfig = {
   },
 };
 
-/** abstract non-display logic for Login component */
+/** abstracted non-display logic for LoginForm component */
 export const useLoginForm = () => {
   const [_state, executeMutation] = useLoginMutation();
 
