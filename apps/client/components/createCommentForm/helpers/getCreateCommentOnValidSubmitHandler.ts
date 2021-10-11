@@ -7,9 +7,8 @@ import {
   CreateCommentFieldValues,
   CreateCommentVariables,
 } from './createCommentTypes';
-import { OperationContext } from 'urql';
-import { fetchGraphql } from '../../../helpers/fetchGraphql';
 import { NextRouter } from 'next/router';
+import { fetchGraphql } from '../../../helpers/fetchGraphql';
 
 // filed an issue why ID unknown. see https://github.com/graphql/vscode-graphql/issues/331
 // an alternative to graphql.vscode-graphql is kumar-harsh.graphql-for-vscode but I'd rather not use it as it hasn't been updated in 2yrs
