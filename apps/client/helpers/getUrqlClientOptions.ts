@@ -1,9 +1,4 @@
-import {
-  cacheExchange,
-  dedupExchange,
-  fetchExchange,
-  ssrExchange,
-} from '@urql/core';
+import { cacheExchange, dedupExchange, fetchExchange, ssrExchange } from 'urql';
 import { SSRExchange } from 'next-urql';
 import { authExchange } from '@urql/exchange-auth';
 import { devtoolsExchange } from '@urql/devtools';

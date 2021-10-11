@@ -1,7 +1,9 @@
 import { PostSlugsQuery, usePostQuery } from '../../graphql';
+import CreateCommentForm from '../../components/createCommentForm/createCommentForm';
 import Link from 'next/link';
 import { getSsrUrqlClient } from '../../helpers/getUrqlClient';
 import { gql } from 'urql';
+import { useEffect } from 'react';
 import { withNoAuthUrqlClient } from '../../helpers/withAppUrqlClient';
 
 const POST_QUERY = gql`
@@ -11,6 +13,14 @@ const POST_QUERY = gql`
       Title
       Content
       Slug
+      comments {
+        id
+        Comment
+        Author {
+          id
+          username
+        }
+      }
     }
   }
 `;
@@ -39,11 +49,12 @@ function Post({ slug }) {
       <div>
         <h1>{post.Title}</h1>
         <p>{post.Content}</p>
+        {post.comments.length > 0 &&
+          post.comments.map((comment) => (
+            <div key={comment.id}>{comment.Comment}</div>
+          ))}
       </div>
-      <iframe
-        style={{ width: '100%', height: '400px' }}
-        src={`/createComment?postId=${post.id}`}
-      />
+      <CreateCommentForm postId={post.id} />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { getUrqlClientOptions } from './getUrqlClientOptions';
 import { initUrqlClient } from 'next-urql';
-import { ssrExchange } from '@urql/core';
+import { ssrExchange } from 'urql';
 
 export function getSsrUrqlClient() {
   const ssrCache = ssrExchange({ isClient: false });

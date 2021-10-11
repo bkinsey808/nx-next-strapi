@@ -1,13 +1,17 @@
 import { AppButton, AppForm, AppTextField } from '../appForm';
 import { CreateCommentFieldValues } from './helpers/createCommentTypes';
+import { FC } from 'react';
+import { OperationContext } from 'urql';
 import { useCreateCommentForm } from './useCreateCommentForm';
 import { useRouter } from 'next/router';
 
-function CreateCommentForm() {
-  const router = useRouter();
-  const postId = router.query.postId as string;
+interface CreateCommentFormProps {
+  postId: string;
+}
+
+const CreateCommentForm: FC<CreateCommentFormProps> = ({ postId }) => {
   const { formRef, onSubmit, formError, formOptions } = useCreateCommentForm({
-    postId,
+    extraVariables: { postId },
   });
 
   return (
@@ -19,6 +23,6 @@ function CreateCommentForm() {
       <AppButton type="submit">Add Comment</AppButton>
     </AppForm>
   );
-}
+};
 
 export default CreateCommentForm;

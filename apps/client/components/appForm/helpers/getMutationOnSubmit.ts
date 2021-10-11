@@ -21,6 +21,7 @@ export const getMutationOnSubmit = <
   handleSubmit,
   formRef,
   extraVariables,
+  extraOptions,
 }: {
   getOnValidSubmitHandler: GetOnValidMutationSubmitHandler<
     FormFieldValues,
@@ -37,6 +38,7 @@ export const getMutationOnSubmit = <
   handleSubmit: UseFormHandleSubmit<FormFieldValues>;
   formRef;
   extraVariables?: ExtraVariables;
+  extraOptions?: Record<string, unknown>;
 }): (() => void) =>
   handleSubmit(
     // this means the form itself is valid (on the client side)
@@ -46,6 +48,7 @@ export const getMutationOnSubmit = <
       setFieldError,
       formRef,
       extraVariables,
+      extraOptions,
     }),
     getErrorHandler(formRef)
   );

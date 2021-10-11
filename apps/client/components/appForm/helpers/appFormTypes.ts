@@ -54,6 +54,7 @@ export interface GetOnSubmitOptions<
   handleSubmit: UseFormHandleSubmit<FormFieldValues>;
   formRef: MutableRefObject<HTMLFormElement | null>;
   extraVariables: ExtraVariables;
+  extraOptions?: Record<string, unknown>;
 }
 
 export type GetMutationOnSubmit<

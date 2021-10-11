@@ -2,8 +2,8 @@ import {
   AppFieldConfig,
   GetOnValidMutationSubmitHandler,
 } from './helpers/appFormTypes';
+import { OperationContext, OperationResult } from 'urql';
 import { useRef, useState } from 'react';
-import { UseMutationResponse } from 'urql';
 import { getFormOptions } from './helpers/getFormOptions';
 import { getMutationOnSubmit } from './helpers/getMutationOnSubmit';
 import { getResolver } from './helpers/getResolver';
@@ -16,13 +16,17 @@ export const useAppForm = <
   ExtraVariables
 >({
   formId,
-  useMutation,
+  executeMutation,
   fieldConfig,
   getOnValidSubmitHandler,
   extraVariables,
+  extraOptions,
 }: {
   formId: string;
-  useMutation: () => UseMutationResponse<MutationType, MutationVariables>;
+  executeMutation?: (
+    variables?: MutationVariables,
+    context?: Partial<OperationContext>
+  ) => Promise<OperationResult<MutationType, MutationVariables>>;
   fieldConfig: AppFieldConfig;
   getOnValidSubmitHandler: GetOnValidMutationSubmitHandler<
     FormFieldValues,
@@ -31,8 +35,8 @@ export const useAppForm = <
     ExtraVariables
   >;
   extraVariables?: ExtraVariables;
+  extraOptions?: Record<string, unknown>;
 }) => {
-  const [_state, executeMutation] = useMutation();
   const formRef = useRef<HTMLFormElement | null>(null);
   const [formError, setFormError] = useState<string | undefined>();
   const resolver = getResolver(fieldConfig);
@@ -55,6 +59,7 @@ export const useAppForm = <
     handleSubmit,
     formRef,
     extraVariables,
+    extraOptions,
   });
 
   const formOptions = getFormOptions<FormFieldValues>({

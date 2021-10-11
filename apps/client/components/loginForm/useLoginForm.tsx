@@ -36,10 +36,13 @@ export const loginFieldConfig: AppFieldConfig = {
 };
 
 /** abstract non-display logic for Login component */
-export const useLoginForm = () =>
-  useAppForm({
+export const useLoginForm = () => {
+  const [_state, executeMutation] = useLoginMutation();
+
+  return useAppForm({
     formId: 'login',
-    useMutation: useLoginMutation,
+    executeMutation,
     fieldConfig: loginFieldConfig,
     getOnValidSubmitHandler: getLoginOnValidSubmitHandler,
   });
+};
