@@ -67,7 +67,7 @@ export const getUrqlClientOptions =
       devtoolsExchange,
       dedupExchange,
       cacheExchange,
-      // for some reason, authExchange cannot be used on any page that should be SSR'd
+      // for some reason, authExchange cannot be used on any page that should be SSG'd
       ...(withAuth
         ? [authExchange({ getAuth, addAuthToOperation, didAuthError })]
         : []),
