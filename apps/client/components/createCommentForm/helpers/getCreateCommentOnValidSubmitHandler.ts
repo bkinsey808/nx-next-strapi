@@ -13,7 +13,7 @@ import { gql } from 'urql';
 
 // filed an issue why ID unknown. see https://github.com/graphql/vscode-graphql/issues/331
 // an alternative to graphql.vscode-graphql is kumar-harsh.graphql-for-vscode but I'd rather not use it as it hasn't been updated in 2yrs
-const CREATE_COMMENT_GQL = gql`
+gql`
   mutation CreateComment($comment: String!, $postId: ID!) {
     createComment(input: { data: { Comment: $comment, Post: $postId } }) {
       comment {
@@ -40,21 +40,12 @@ export const getCreateCommentOnValidSubmitHandler: GetOnValidMutationSubmitHandl
   ({ executeMutation, setFormError, setFieldError, formRef, extraVariables }) =>
   async (formFieldValues) => {
     try {
-      const { comment } = formFieldValues;
-      const { client } = getBrowserUrqlClient();
-      const res = await client
-        .mutation(CREATE_COMMENT_GQL, {
-          ...formFieldValues,
-          ...extraVariables,
-        })
-        .toPromise();
-      console.log({ res });
-      // const { data, error } = await executeMutation({
-      //   comment,
-      //   ...extraVariables,
-      // });
+      const { data, error } = await executeMutation({
+        ...formFieldValues,
+        ...extraVariables,
+      });
 
-      // console.log({ data, error });
+      console.log({ data, error });
     } catch (err) {
       console.log({ err });
       createCommentHandleError(err, setFormError);

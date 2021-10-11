@@ -1,11 +1,13 @@
 import { AppButton, AppForm, AppTextField } from '../appForm';
 import { CreateCommentFieldValues } from './helpers/createCommentTypes';
 import { useCreateCommentForm } from './useCreateCommentForm';
-import { withAuthUrqlClient } from '../../helpers/withAppUrqlClient';
+import { useRouter } from 'next/router';
 
 function CreateCommentForm() {
+  const router = useRouter();
+  const postId = router.query.postId as string;
   const { formRef, onSubmit, formError, formOptions } = useCreateCommentForm({
-    postId: '1',
+    postId,
   });
 
   return (

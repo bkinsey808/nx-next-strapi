@@ -1,5 +1,4 @@
 import { PostSlugsQuery, usePostQuery } from '../../graphql';
-import CreateCommentForm from '../../components/createCommentForm/createCommentForm';
 import Link from 'next/link';
 import { getSsrUrqlClient } from '../../helpers/getUrqlClient';
 import { gql } from 'urql';
@@ -41,6 +40,10 @@ function Post({ slug }) {
         <h1>{post.Title}</h1>
         <p>{post.Content}</p>
       </div>
+      <iframe
+        style={{ width: '100%', height: '400px' }}
+        src={`/createComment?postId=${post.id}`}
+      />
     </>
   );
 }
