@@ -1,4 +1,4 @@
-import CreateCommentForm from '../../components/createCommentForm/createCommentForm';
+import { CreateCommentForm } from '../../components/createCommentForm/createCommentForm';
 import Link from 'next/link';
 import { getSsrUrqlClient } from '../../helpers/getUrqlClient';
 import { gql } from 'urql';
