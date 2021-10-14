@@ -11,7 +11,7 @@ export const getInputOnBlur =
     trigger: UseFormTrigger<FormFieldTypes>;
     name: Path<FormFieldTypes>;
   }) =>
-  (_e: ChangeEvent<HTMLInputElement>) => {
+  (_e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     void trigger(name);
     onBlur();
   };

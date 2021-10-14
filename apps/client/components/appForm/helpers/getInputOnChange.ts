@@ -8,12 +8,12 @@ export const getInputOnChange =
     trigger,
     name,
   }: {
-    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+    onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
     hasError: boolean;
     trigger: UseFormTrigger<FormFieldTypes>;
     name: Path<FormFieldTypes>;
   }) =>
-  (e: ChangeEvent<HTMLInputElement>) => {
+  (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     onChange(e);
     // only trigger error checking onChange if there was already an error
     // we don't want new errors onChange, only onBlur

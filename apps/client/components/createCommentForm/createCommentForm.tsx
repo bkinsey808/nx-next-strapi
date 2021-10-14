@@ -1,4 +1,4 @@
-import { AppButton, AppForm, AppTextField } from '../appForm';
+import { AppButton, AppForm, AppTextAreaField } from '../appForm';
 import { CreateCommentFieldValues } from './helpers/createCommentTypes';
 import { FC } from 'react';
 import { useCreateCommentForm } from './useCreateCommentForm';
@@ -14,7 +14,7 @@ export const CreateCommentForm: FC<CreateCommentFormProps> = ({ postId }) => {
 
   return (
     <AppForm ref={formRef} onSubmit={onSubmit} formError={formError}>
-      <AppTextField<CreateCommentFieldValues>
+      <AppTextAreaField<CreateCommentFieldValues>
         name="comment"
         formOptions={formOptions}
       />
